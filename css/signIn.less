@@ -34,10 +34,26 @@ body{
     font-size: 32/@r;
     color: #999;
 }
+.passwordLogin,.phoneLogin{
+    position: relative;
+}
 .passwordLogin>p.active,.phoneLogin>p.active{
     color: #333;
 }
-
+.passwordLogin>span,.phoneLogin>span{
+    display: none;
+    position: absolute;
+    width: 62/@r;
+    height: 8/@r;
+    background-color: #00adb4;
+    border-radius: 8/@r;
+    left: 50%;
+    margin-left: -31/@r;
+    bottom: 0;
+}
+.passwordLogin>span.active,.phoneLogin>span.active{
+    display: block;
+}
 .passwordTab label,.phoneTab label{
     width: 720/@r;
     font-size: 30/@r;

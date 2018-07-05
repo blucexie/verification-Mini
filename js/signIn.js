@@ -1,0 +1,18 @@
+$(function(){
+    $('.passwordLogin').on('click',function(){
+        $('.passwordTab').show();
+        $('.phoneTab').hide();
+        $(this).find('p').addClass('active');
+        $(this).find('span').addClass('active');
+        $('.phoneLogin>p').removeClass('active');
+        $('.phoneLogin>span').removeClass('active');
+    })
+    $('.phoneLogin').on('click',function(){
+        $('.phoneTab').show();
+        $('.passwordTab').hide();
+        $(this).find('p').addClass('active');
+        $(this).find('span').addClass('active');
+        $('.passwordLogin>p').removeClass('active');
+        $('.passwordLogin>span').removeClass('active');
+    })
+})

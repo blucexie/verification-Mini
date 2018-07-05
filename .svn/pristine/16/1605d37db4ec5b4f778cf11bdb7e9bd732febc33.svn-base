@@ -1,7 +1,7 @@
 // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
 var useragent = navigator.userAgent;
 
-/*if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
 	// 这里警告框会阻塞当前页面继续加载
 	alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
 	// 以下代码是用javascript强行关闭当前页面
@@ -9,15 +9,9 @@ var useragent = navigator.userAgent;
 	opened.opener = null;
 	opened.close();
 }
-*/
-/* 校验手机号码 */
+
 function isValidPhone(mobile) {
+	/* 校验手机号码 */
 	var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|19[0-9]|14[57])[0-9]{8}$/;
 	return re.test(mobile);
-}
-
-/* 校验身份证号 */
-function checkICCard(resumeIdCard) {
-	var idCard = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
-	return idCard.test(resumeIdCard);
 }

@@ -39,18 +39,18 @@
         </ul>
     </div>
     <div class="footerTab">
-        <p>
-			<img src="images/index_sel.png" alt=""> 
-			<span class="active"><a href="index.html">首页</a></span>
-		</p>
-		<p>
-			<img src="images/report_pre.png" alt=""> 
-			<span><a href="reportList.html">报告</a></span>
-		</p>
-		<p>
-			<img src="images/my-pre.png" alt=""> 
-			<span><a href="personal.html">我的</a></span>
-		</p>
+            <p>
+                <img src="images/index_sel.png" alt="">
+                <span class="active">首页</span>
+            </p>
+            <p>
+                <img src="images/report_pre.png" alt="">
+                <span>报告</span>
+            </p>
+            <p>
+                <img src="images/my-pre.png" alt="">
+                <span>我的</span>
+            </p>
         </div>
 </body>
 
