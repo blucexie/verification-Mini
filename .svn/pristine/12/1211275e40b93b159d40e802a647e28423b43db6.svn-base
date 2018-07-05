@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>消息</title>
+    <link rel="stylesheet" href="css/messageList.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/messageList.js"></script>
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p>消息</p>
+        </div>
+        <div class="infoTab clearfix">
+            <div >
+                <p >钱包消息</p>
+                <span></span>
+            </div>
+            <div>
+                <p class="active">核验消息</p>
+                <span class="active"></span>
+            </div>
+        </div>
+        <ul class="infoList">
+        </ul>
+    </div>
+    <div class="footerTab">
+            <p>
+                <img src="images/index_sel.png" alt="">
+                <span class="active">首页</span>
+            </p>
+            <p>
+                <img src="images/report_pre.png" alt="">
+                <span>报告</span>
+            </p>
+            <p>
+                <img src="images/my-pre.png" alt="">
+                <span>我的</span>
+            </p>
+        </div>
+</body>
+
+</html>

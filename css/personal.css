@@ -1,0 +1,137 @@
+body {
+  font-family: "Microsoft YaHei";
+  position: relative;
+  background: #f8f8f8;
+}
+span {
+  font-size: 0.6rem;
+  color: #333;
+}
+.unanth-header {
+  display: none;
+  position: relative;
+  margin: 0.6rem;
+  text-align: center;
+  box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+  padding-top: 0.1px;
+  padding-bottom: 0.1px;
+}
+.anth-header {
+  display: none;
+  position: relative;
+  margin: 0.6rem;
+  box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+  padding-top: 0.1px;
+  padding-bottom: 0.1px;
+}
+.anth-header.active {
+  display: block;
+}
+.unanth-header .headPortrait {
+  position: relative;
+  margin-top: 0.88rem;
+}
+.headPortrait > img {
+  width: 2.4rem;
+}
+.unanth-header .headPortrait .unanth {
+  position: absolute;
+  left: 50%;
+  margin-left: -1.16rem;
+  bottom: 0;
+  width: 2.32rem;
+}
+.anth-header .headPortrait {
+  float: left;
+  position: relative;
+  margin: 1.42rem 0.4rem 1.9rem 0.92rem;
+}
+.anth-header .headPortrait .unanth {
+  position: absolute;
+  left: 50%;
+  margin-left: -1.16rem;
+  bottom: 0;
+  width: 2.32rem;
+}
+.anth-msg {
+  margin-top: 2.12rem;
+}
+.anth-userName {
+  font-size: 0.68rem;
+  color: #333;
+}
+.anth-company {
+  font-size: 0.56rem;
+  color: #666;
+}
+.userName {
+  font-size: 0.68rem;
+  color: #333;
+  margin: 0.48rem 0 1.2rem 0;
+}
+.authenticate {
+  position: absolute;
+  right: 0;
+  bottom: 0.52rem;
+  background-color: #feaf3f;
+  font-size: 0.52rem;
+  color: #fff;
+  padding: 0.18rem 0.24rem 0.18rem 0.34rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.unanth-header.active,
+.anth-header.active {
+  display: block;
+}
+.wallet,
+.info,
+.about,
+.download {
+  height: 1.72rem;
+}
+.wallet > img,
+.info > img,
+.about > img,
+.download > img {
+  float: left;
+  width: 0.84rem;
+  margin-left: 0.64rem;
+  margin-right: 0.6rem;
+  margin-top: 0.48rem;
+}
+.wallet > span,
+.info > span,
+.about > span,
+.download > span {
+  float: left;
+  font-size: 0.64rem;
+  color: #333;
+  margin-top: 0.4rem;
+}
+.wallet,
+.about {
+  border-bottom: 1px solid #eee;
+}
+.info,
+.download {
+  border-bottom: 0.28rem solid #f4f5f9;
+}
+.icon {
+  float: right;
+  margin-top: 0.2rem;
+}
+.icon > img {
+  width: 0.26rem;
+  margin-right: 0.6rem;
+  padding-left: 1rem;
+}
+.icon span {
+  font-size: 0.6rem;
+  color: #feaf3f;
+}
+.wallet .icon > img {
+  padding-left: 0;
+}

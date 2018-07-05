@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>授权申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="stylesheet" href="css/fastVerification.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!--  <script type="text/javascript" src="layer_mobile/layer.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/verifyPre.js"></script> -->
+    <script src="js/jq-signature.js"></script>
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo">
+            <img src="images/shou.png" alt="">
+        </div>
+        <div class="company">
+            <p class="companyName"></p>
+            <p>请如实填写人员基本信息，以便企业进行职业背景核验，请授权</p>
+        </div>
+        <div class="warn">
+            <p>
+                <img src="images/xing2.png" alt=""> 请注意此公司是否与您进行过求职沟通</p>
+        </div>
+    </div>
+    <div class="interval"></div>
+    <div class="licensedContent">
+        <div class="licensedContentTitle">
+            <img src="images/licensedContent-icon.png" alt="">
+            <h2> 将授权的内容包括</h2>
+        </div>
+        <ul class="clearfix">
+            <li>
+                <img src="images/a1.png" alt="">
+                <p>身份信息核验</p>
+            </li>
+            <li>
+                <img src="images/a6.png" alt="">
+                <p>职业资格核验</p>
+            </li>
+            <li>
+                <img src="images/a7.png" alt="">
+                <p>公共治安信息核验</p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="septal-line"></div>
+    <div class="basic">
+        <img src="images/basicBG.png" alt="">
+    </div>
+    <form id="deForm" class="basicForm clearfix" action="">
+        <label for="resumeName">
+            <i class="icon1"></i>
+            <span>姓名</span>
+            <input id="resumeName" type="text" name="resumeName" data-attribute="请填写正确的姓名" placeholder="请输入您的姓名" disabled="disabled">
+        </label>
+        <br>
+        <label for="resumeIdCard">
+            <i class="icon2"></i>
+            <span class="inpId">身份证号码</span>
+            <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" onchange="value=value.replace(/[\W]/g,'')"
+                maxlength="18">
+        </label>
+        <br>
+        <label for="resumeMobile">
+            <i class="icon3"></i>
+            <span class="inpTel">联系方式</span>
+            <input id="resumeMobile" type="text" name="resumeMobile" data-attribute="请填写正确的联系方式" placeholder="请输入您的联系方式" maxlength="11"
+                disabled="disabled">
+        </label>
+        <br>
+    </form>
+    <div class="autograph">
+        <span>签名授权:</span>
+        <div class="nameSpace">
+           <p>点击此处签名</p>
+        </div>
+    </div>
+    <div class="nextStep">
+        <button>确定</button>
+    </div>
+
+     <!--签名-->
+     <div class="htmleaf-container" >
+
+            <div class="container">
+    
+                <div class="js-signature" style="display:none"></div>
+                <div class="row">
+                    <div class="col-xs-12">
+    
+                        <div class="js-signature"  data-width="600"  data-height="200" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true"></div>
+                        <p>
+                            <button id="clearBtn" class="btn btn-default" >重写</button>&nbsp;
+                            <button id="closeBtn" class="btn btn-default">关闭</button>&nbsp;
+                            <button id="saveBtn" class="btn btn-default"  disabled>保存</button></p>
+                        <div id="signature">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    <!--遮罩-->
+    <div class="zhezhao"></div>
+    <div id="loading" class="loader-inner line-scale">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="footerTab">
+            <p>
+                <img src="images/index_sel.png" alt="">
+                <span class="active">首页</span>
+            </p>
+            <p>
+                <img src="images/report_pre.png" alt="">
+                <span>报告</span>
+            </p>
+            <p>
+                <img src="images/my-pre.png" alt="">
+                <span>我的</span>
+            </p>
+        </div>
+    <script>
+          /*签名区*/
+    $('.nameSpace').click(function (e) {
+        $('.htmleaf-container').css('display','block');
+        $('.js-signature canvas').attr('width',600).css('width','600px');
+        $('.zhezhao').css('display','block');
+        $('body').css({'overflow':'hidden','height':'100%'});
+        $('html').css({'overflow':'hidden','height':'100%'});
+    });
+
+    if ($('.js-signature').length) {
+        $('.js-signature').jqSignature();
+    }
+    /*清除签名*/
+    function clearCanvas() {
+        $('.js-signature').eq(1).jqSignature('clearCanvas');
+        $('#saveBtn').attr('disabled', true);
+    }
+
+    $('#clearBtn').click(function () {
+        clearCanvas()
+    });
+    /*保存签名*/
+    function saveSignature() {
+        $('.nameSpace').empty();
+        $('#signature').empty();
+        var dataUrl = $('.js-signature').eq(1).jqSignature('getDataURL');
+        localStorage.setItem('img', dataUrl);
+        $('.htmleaf-container').css('display','none');
+        $('.zhezhao').css('display','none');
+        $('body').css({'overflow':'auto','height':'auto'});
+        $('html').css({'overflow':'auto','height':'auto'});
+        $(window).scrollTop ($('body').height());
+        /*取值填充*/
+        var img = localStorage.getItem('img');
+        if(img){
+            var imgT = $('<img>').attr('src', img);
+            $('.nameSpace').append(imgT);
+        }
+        $('#saveBtn').attr('disabled',true);
+    }
+    $('#saveBtn').click(function () {
+        saveSignature()
+    });
+    $('.js-signature').eq(1).on('jq.signature.changed', function() {
+        $('#saveBtn').attr('disabled', false);
+    });
+    /*关闭签名*/
+    $('#closeBtn').click(function () {
+        $('.htmleaf-container').css('display','none');
+        $('.zhezhao').css('display','none');
+        $('body').css('overflow','auto');
+        $('body').css({'overflow':'auto','height':'auto'});
+        $('html').css({'overflow':'auto','height':'auto'});
+        $(window).scrollTop ($('body').height());
+    });
+
+    </script>
+
+
+</body>
+
+</html>

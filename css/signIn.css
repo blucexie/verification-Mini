@@ -1,0 +1,241 @@
+body {
+  font-family: "Microsoft YaHei";
+  background: #fff;
+}
+::-webkit-input-placeholder {
+  font-size: 0.56rem;
+  color: #ccc;
+}
+.wrap {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.header {
+  border-bottom: 1px solid #e7e7e7;
+}
+.header h2 {
+  font-weight: normal;
+  font-size: 0.68rem;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 0.48rem;
+}
+.header > div {
+  float: left;
+  width: 50%;
+  text-align: center;
+  height: 2.4rem;
+  line-height: 2.4rem;
+}
+.header > div > p {
+  font-size: 0.64rem;
+  color: #999;
+}
+.passwordLogin > p.active,
+.phoneLogin > p.active {
+  color: #333;
+}
+.passwordTab label,
+.phoneTab label {
+  width: 14.4rem;
+  font-size: 0.6rem;
+  color: #573e5f;
+  height: 2rem;
+  line-height: 2rem;
+  display: inline-block;
+  border-bottom: 1px solid #e7e7e7;
+  background: #fff;
+  margin-left: 0.6rem;
+}
+.passwordTab label span,
+.phoneTab label span {
+  float: left;
+  width: 2.8rem;
+  font-size: 0.6rem;
+  color: #333;
+  margin-right: 1rem;
+}
+.passwordTab label input,
+.phoneTab label input {
+  border: none;
+  height: 1.6rem;
+  outline: none;
+  font-size: 0.56rem;
+  color: #666;
+}
+.passwordTab.active,
+.phoneTab.active {
+  display: none;
+}
+#validateCode {
+  width: 4.8rem;
+}
+.mesBtn {
+  display: inline-block;
+  width: 3.72rem;
+  height: 1.16rem;
+  line-height: 1.16rem;
+  margin-left: 0.76rem;
+  border: 1px solid #03aaad;
+  border-radius: 0.2rem;
+  color: #03aaad;
+  font-size: 0.52rem;
+  background: #fff;
+  outline: none;
+}
+.agreementWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.8rem;
+}
+.agreementWrap span {
+  font-size: 0.56rem;
+}
+.agreementWrap .read {
+  color: #999;
+}
+.agreementWrap .agreement {
+  color: #333;
+}
+.checkS {
+  display: flex;
+  align-items: center;
+  margin-right: 0.7rem;
+}
+.input_check {
+  visibility: hidden;
+}
+.input_check:checked + label {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url(../images/checkedY.png) no-repeat;
+  background-size: 0.6rem 0.6rem;
+}
+.input_check + label {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url(../images/checkedN.png) no-repeat;
+  background-size: 0.6rem 0.6rem;
+}
+.login {
+  margin-top: 1.7rem;
+  text-align: center;
+}
+.login button {
+  width: 8.6rem;
+  height: 1.84rem;
+  line-height: 1.84rem;
+  background-color: #00adb4;
+  border-radius: 0.92rem;
+  border: none;
+  outline: none;
+  font-size: 0.64rem;
+  color: #fff;
+}
+.passwordTab-footer,
+.phoneTab-footer {
+  margin-top: 1.24rem;
+  padding: 0 0.6rem;
+}
+.footerLeft {
+  float: left;
+  color: #333;
+  font-size: 0.56rem;
+}
+.footerRight {
+  float: right;
+  font-size: 0.56rem;
+  color: #999;
+}
+.goRegister {
+  color: #00adb4;
+}
+.phoneTab-footer span {
+  float: right;
+  font-size: 0.56rem;
+  color: #999;
+}
+.passwordTab-footer.active,
+.phoneTab-footer.active {
+  display: none;
+}
+.codeExplain {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+.codeExplain h2,
+.codeExplain h3 {
+  font-weight: normal;
+}
+.codeExplain h2 {
+  font-size: 0.64rem;
+  color: #333;
+  text-align: center;
+  margin-top: 0.6rem;
+}
+.codeExplain h3 {
+  font-size: 0.6rem;
+  color: #333;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  margin-left: 0.6rem;
+}
+.codeExplain p {
+  font-size: 0.56rem;
+  color: #666;
+  line-height: 1.2rem;
+  margin-left: 0.6rem;
+}
+.codeExplain .tel {
+  margin-top: 0.6rem;
+}
+.codeExplain .tel > p > span {
+  color: #00adb4;
+}
+.codeExplain .close {
+  text-align: center;
+}
+.codeExplain .close img {
+  width: 1.32rem;
+  margin-top: 12rem;
+}
+.footerTab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0 -5px 10px 0 rgba(233, 234, 242, 0.5);
+  margin-top: 0.72rem;
+  z-index: 9999;
+  background-color: #fff;
+}
+.footerTab > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  padding: 0.64rem 0;
+}
+.footerTab > p > img {
+  width: 0.8rem;
+}
+.footerTab > p > span {
+  font-size: 0.52rem;
+  color: #999;
+  margin-left: 0.16rem;
+}
+.footerTab > p > span.active {
+  color: #00adb4;
+}

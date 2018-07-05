@@ -1,0 +1,238 @@
+@r:50rem;
+body{
+  font-family:"Microsoft YaHei";
+  background: #fff;
+}
+  ::-webkit-input-placeholder{
+    font-size: 28/@r;
+    color: #ccc;
+  }
+.wrap{
+  position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.header{
+    border-bottom: 1px solid #e7e7e7;
+}
+.header h2{
+    font-weight: normal;
+    font-size: 34/@r;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 24/@r;
+}
+.header>div{
+    float: left;
+    width: 50%;
+    text-align: center;
+    height: 120/@r;
+    line-height: 120/@r;
+}
+.header>div>p{
+    font-size: 32/@r;
+    color: #999;
+}
+.passwordLogin>p.active,.phoneLogin>p.active{
+    color: #333;
+}
+
+.passwordTab label,.phoneTab label{
+    width: 720/@r;
+    font-size: 30/@r;
+    color: #573e5f;
+    height: 100/@r;
+    line-height: 100/@r;
+    display: inline-block;
+    border-bottom: 1px solid #e7e7e7;
+    background: #fff;
+    margin-left: 30/@r;
+  }
+  .passwordTab label span,.phoneTab label span{
+      float: left;
+      width: 140/@r;
+      font-size: 30/@r;
+      color: #333;
+      margin-right: 50/@r;
+  }
+  .passwordTab label input,.phoneTab label input{
+    border: none;
+    height: 80/@r;
+    outline: none;
+    font-size: 28/@r;
+    color: #666;
+  }
+.passwordTab.active,.phoneTab.active{
+    display: none;
+}
+
+#validateCode{
+  width: 240/@r;
+}
+
+ .mesBtn{
+    display: inline-block;
+    width: 186/@r;
+    height: 58/@r;
+    line-height: 58/@r;
+    margin-left: 38/@r;
+    border: 1px solid #03aaad;
+    border-radius: 10/@r;
+    color: #03aaad;
+    font-size: 26/@r;
+    background: #fff;
+    outline: none;
+  }
+  .agreementWrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 140/@r;
+  }
+  .agreementWrap span{
+      font-size: 28/@r;
+  }
+  .agreementWrap .read{
+      color: #999;
+  }
+  .agreementWrap .agreement{
+      color: #333;
+  }
+  .checkS{
+      display: flex;
+      align-items: center;
+      margin-right: 35/@r;
+  }
+  .input_check {
+    visibility: hidden;
+}
+  .input_check:checked + label{
+    display: inline-block;
+    width: 30/@r;
+    height:30/@r;
+    background: url(../images/checkedY.png) no-repeat;
+    background-size: 30/@r 30/@r;
+  }
+  .input_check + label {
+    display: inline-block;
+    width: 30/@r;
+    height: 30/@r;
+    background: url(../images/checkedN.png) no-repeat;
+    background-size: 30/@r 30/@r;
+}
+.login{
+    margin-top: 85/@r;
+    text-align: center;
+}
+.login button{
+    width: 430/@r;
+    height: 92/@r;
+    line-height: 92/@r;
+    background-color: #00adb4;
+    border-radius: 46/@r;
+    border: none;
+    outline: none;
+    font-size: 32/@r;
+    color: #fff;
+}
+.passwordTab-footer,.phoneTab-footer{
+    margin-top: 62/@r;
+    padding: 0 30/@r;
+}
+.footerLeft{
+    float: left;
+    color: #333;
+    font-size: 28/@r;
+}
+.footerRight{
+    float: right;
+    font-size: 28/@r;
+    color: #999;
+}
+.goRegister{
+    color: #00adb4;
+}
+.phoneTab-footer span{
+    float: right;
+    font-size: 28/@r;
+    color: #999;
+}
+.passwordTab-footer.active,.phoneTab-footer.active{
+    display: none;
+}
+.codeExplain{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+.codeExplain h2,.codeExplain h3{
+    font-weight: normal;
+}
+.codeExplain h2{
+    font-size: 32/@r;
+    color: #333;
+    text-align: center;
+    margin-top: 30/@r;
+}
+.codeExplain h3{
+    font-size: 30/@r;
+    color: #333;
+    margin-top: 30/@r;
+    margin-bottom: 20/@r;
+    margin-left: 30/@r;
+}
+.codeExplain p{
+    font-size: 28/@r;
+    color: #666;
+    line-height: 60/@r;
+    margin-left: 30/@r;
+}
+.codeExplain .tel{
+    margin-top: 30/@r;
+}
+.codeExplain .tel>p>span{
+    color: #00adb4;
+}
+.codeExplain .close{
+    text-align: center;
+}
+.codeExplain .close img{
+    width: 66/@r;
+    margin-top: 600/@r;
+}
+
+.footerTab{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 -5px 10px 0 rgba(233,234,242,.5);
+    margin-top: 36/@r;
+    z-index: 9999;
+    background-color: #fff;
+}
+.footerTab>p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    padding: 32/@r 0;
+}
+.footerTab>p>img{
+    width:40/@r;
+}
+.footerTab>p>span{
+    font-size: 26/@r;
+    color: #999;
+    margin-left: 8/@r;
+}
+.footerTab>p>span.active{
+    color: #00adb4;
+}

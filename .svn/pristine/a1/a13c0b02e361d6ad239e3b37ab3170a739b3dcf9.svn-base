@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>易职信</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.11.3.min.js"></script>    
+    <script src="js/flexible.js"></script>
+
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="header-content">
+                <img src="images/header-content.png" alt="">
+            </div>
+            <div class="header-botton">
+                <img src="images/header-bottom.png" alt="">
+            </div>
+        </div>
+        <div class="main">
+            <div class="self">
+                <img src="images/self-icon.png" alt="">
+                <span>查自己</span>
+            </div>
+            <div class="others">
+                <img src="images/others-icon.png" alt="">
+                <span>查别人</span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>更多精彩敬请期待</p>
+        </div>
+       
+    </div>
+    <div class="footerTab">
+        <p>
+            <img src="images/index_sel.png" alt="">
+            <span class="active">首页</span>
+        </p>
+        <p>
+            <img src="images/report_pre.png" alt="">
+            <span>报告</span>
+        </p>
+        <p>
+            <img src="images/my-pre.png" alt="">
+            <span>我的</span>
+        </p>
+    </div>
+</body>
+</html>

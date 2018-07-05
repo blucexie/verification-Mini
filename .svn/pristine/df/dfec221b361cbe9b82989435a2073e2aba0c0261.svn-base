@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/reportList.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p>报告</p>
+        </div>
+      <div class="search">
+          <img src="images/glass.png" alt="">
+          <input type="text" placeholder="请输入姓名搜索">
+      </div>
+      <ul class="list">
+          <li class="clearfix">
+              <span class="nameSidebar">余音</span>
+              <div class="content">
+                <h3>余音</h3>
+                <p>查别人-付费查</p>
+                <p>订单价格：8元</p>
+              </div>
+              <div class="list-right">
+                <span class="red">不一致</span>
+                <p>06-23 16:22</p>
+              </div>
+          </li>
+          <li class="clearfix">
+            <span class="nameSidebar">余音</span>
+            <div class="content">
+                <h3>余音</h3>
+                <p>查别人-付费查</p>
+            </div>
+            <div class="list-right">
+                <span class="green">不一致</span>
+                <p>06-23 16:22</p>
+            </div>
+        </li>
+        <li class="clearfix">
+            <span class="nameSidebar">余音</span>
+            <div class="content">
+                <h3>余音</h3>
+                <p>查别人-付费查</p>
+            </div>
+            <div class="list-right">
+                <span class="orange">去付款|￥8</span>
+                <p>06-23 16:22</p>
+            </div>
+        </li>
+      </ul>
+    </div>
+    <div class="footerTab">
+            <p>
+                <img src="images/index_sel.png" alt="">
+                <span class="active">首页</span>
+            </p>
+            <p>
+                <img src="images/report_pre.png" alt="">
+                <span>报告</span>
+            </p>
+            <p>
+                <img src="images/my-pre.png" alt="">
+                <span>我的</span>
+            </p>
+        </div>
+</body>
+
+</html> 

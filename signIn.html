@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/signIn.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header clearfix">
+                <h2>登录</h2>
+            <div class="passwordLogin">
+                <p class="active">密码登录</p>
+            </div>
+            <div class="phoneLogin">
+                <p>手机号登录</p>
+            </div>
+        </div>
+        <div class="passwordTab ">
+            <label for="passwordTab-Mobile">
+                <span class="inpTel">手机号码</span>
+                <input id="passwordTab-Mobile" type="tel" name="passwordTab-Mobile" data-attribute="请填写正确的手机号码" placeholder="请输入手机号码" maxlength="11">
+            </label>
+            <label for="resumePassword">
+                <span class="password">密码</span>
+                <input id="resumePassword" type="password" name="resumePassword" data-attribute="请填写密码" placeholder="请填写密码" maxlength="11">
+            </label>
+        </div>
+        <div class="phoneTab active">
+            <label for="phoneTab-Mobile">
+                <span class="inpTel">手机号码</span>
+                <input id="phoneTab-Mobile" type="tel" name="phoneTab-Mobile" data-attribute="请填写正确的手机号码" placeholder="请输入手机号码" maxlength="11">
+            </label>
+            <label for="validateCode" id="mesCodeLabel">
+                <span class="msCode">验证码</span>
+                <input id="validateCode"  type="text" name="validateCode" data-attribute="请填写正确的验证码" placeholder="请输入6位验证码" maxlength="6">
+            <button type="button" id="mesBtn" class="mesBtn">获取验证码</button><br>
+
+            </label>
+        </div>
+        <div class="agreementWrap">
+            <span class="checkS">
+                <input type="checkbox" class="input_check" id="check1" checked="checked">
+                <label for="check1"></label>
+            </span>
+            <span class="read">我已阅读并同意</span>
+            <span class="agreement">《易职信免责协议》</span>
+        </div>
+        <div class="login">
+            <button>登录</button>
+        </div>
+        <div class="passwordTab-footer clearfix ">
+            <div class="footerLeft">
+                <span>还没有账号?</span>
+                <span class="goRegister">去注册</span>
+            </div>
+            <div class="footerRight">
+                <span>忘记密码?</span>
+            </div>
+        </div>
+        <div class="phoneTab-footer clearfix active">
+            <span>无法获取验证码</span>
+        </div>
+
+        <div class="codeExplain">
+            <h2>无法获取验证码</h2>
+            <h3>你可以尝试下列方式解决:</h3>
+            <p>1、短信可以有2-10分钟延迟，可以稍等一下。</p>
+            <p>2、查看是否误设短信拦截。</p>
+            <p>3、确认手机缴费且服务正常。</p>
+            <p>4、联系手机号运营商解除黑名单。</p>
+            <div class="tel">
+                <p>如以上无法解决，</p>
+                <p>请拨打<span> 010-52830585 </span>获取帮助</p>
+            </div>
+            <div class="close">
+                <img src="images/close.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footerTab">
+            <p>
+                <img src="images/index_sel.png" alt="">
+                <span class="active">首页</span>
+            </p>
+            <p>
+                <img src="images/report_pre.png" alt="">
+                <span>报告</span>
+            </p>
+            <p>
+                <img src="images/my-pre.png" alt="">
+                <span>我的</span>
+            </p>
+        </div>
+</body>
+
+</html>

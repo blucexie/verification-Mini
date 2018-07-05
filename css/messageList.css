@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Microsoft YaHei";
+  position: relative;
+  background: #f8f8f8;
+}
+span {
+  font-size: 0.6rem;
+  color: #333;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.header {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #333;
+  padding: 0.48rem 0;
+}
+.infoTab {
+  background-color: #fff;
+}
+.infoTab > div {
+  position: relative;
+  float: left;
+  width: 50%;
+  text-align: center;
+  height: 1.92rem;
+  line-height: 1.92rem;
+}
+.infoTab > div > p {
+  font-size: 0.64rem;
+  color: #999;
+}
+.infoTab > div > p.active {
+  color: #333;
+}
+.infoTab > div > span {
+  display: none;
+  position: absolute;
+  width: 1.24rem;
+  height: 0.16rem;
+  background-color: #00adb4;
+  border-radius: 0.16rem;
+  left: 50%;
+  margin-left: -0.62rem;
+  bottom: 0;
+}
+.infoTab > div > span.active {
+  display: block;
+}
+.infoList {
+  padding: 0 0.6rem;
+  margin-bottom: 3.6rem;
+}
+.date {
+  height: 1.04rem;
+  line-height: 1.04rem;
+  background-color: #f8f8f8;
+}
+.date p {
+  font-size: 0.48rem;
+  color: #999;
+  text-align: center;
+}
+.consume {
+  background-color: #fff;
+  padding-left: 0.68rem;
+  padding-top: 0.1px;
+  padding-bottom: 0.4rem;
+  border-radius: 5px;
+}
+.consume h2 {
+  font-size: 0.56rem;
+  color: #333;
+  font-weight: normal;
+  margin: 0.36rem 0;
+}
+.consume .time {
+  font-size: 0.48rem;
+  color: #999;
+  margin-bottom: 0.4rem;
+}
+.consume .describe {
+  font-size: 0.52rem;
+  color: #666;
+  line-height: 0.96rem;
+}

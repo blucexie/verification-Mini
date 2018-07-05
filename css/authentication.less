@@ -1,0 +1,136 @@
+@r:50rem;
+*{margin: 0;padding: 0}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+body{
+  font-family:"Microsoft YaHei";
+  position: relative;
+  background: #f8f8f8;
+}
+input:disabled, input[disabled],textarea:disabled{
+  color: #666;
+  -webkit-text-fill-color:#666;
+  -webkit-opacity:1;
+  opacity: 1;
+}
+span{
+  font-size: 30/@r;
+  color: #333;
+}
+::-webkit-input-placeholder{
+  font-size: 28/@r;
+  color: #ccc;
+}
+input:focus{
+  color:#666;
+  caret-color:#666;
+}
+textarea{
+  border-radius: 0;
+  /* resize:none;*/
+}
+input{
+  border-radius: 0;
+  caret-color:#574e5f;
+  -webkit-appearance: none;
+  background:none;
+  outline:none;
+  border: none;
+  line-height: normal;
+  height: 80/@r;
+  font-size: 28/@r;
+}
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.basic {
+  padding: 15/@r 0;
+}
+.basic img{
+    width: 388/@r;
+    margin-left: 30/@r;
+}
+#deForm{
+    background-color: #fff;
+}
+#deForm label{
+    width:720/@r;
+    font-size: 30/@r;
+    color: #573e5f;
+    height: 100/@r;
+    line-height: 100/@r;
+    display: inline-block;
+    border-bottom: 1px solid #e7e7e7;
+    margin-left: 30/@r;
+}
+#deForm label span{
+  float: left;
+  width: 174/@r;
+  font-size: 30/@r;
+  color: #333;
+}
+.upload p{
+  height: 100/@r;
+  font-size: 30/@r;
+  color: #ccc;
+  line-height: 100/@r;
+  margin-left: 30/@r;
+}
+.layui-upload-file{
+  display: none;
+}
+.layui-layer-move{
+  display: none;
+}
+.layui-upload{
+  width: 550/@r;
+  margin-left: 100/@r;
+  height: 300/@r;
+  cursor: pointer;
+  position: relative;
+}
+.opacity{
+  opacity: 0 !important;
+}
+#test1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: #fff; 
+}
+#test1>img{
+  width: 100%;
+  height: 100%;
+}
+.layui-upload-list{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.layui-upload-list>img{
+  width: 100%;
+  height: 100%;
+}
+.sub{
+  width: 450/@r;
+height: 74/@r;
+background: #00adb4;
+font-size: 34/@r;
+color: #fff;
+border: none;
+border-radius: 50/@r;
+outline: none;
+margin-left: 150/@r;
+margin-top: 50/@r;
+}

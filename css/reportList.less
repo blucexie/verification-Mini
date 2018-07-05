@@ -1,0 +1,136 @@
+@r:50rem;
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+body{
+  font-family:"Microsoft YaHei";
+  position: relative;
+  background: #f8f8f8;
+}
+input:disabled, input[disabled],textarea:disabled{
+  color: #666;
+  -webkit-text-fill-color:#666;
+  -webkit-opacity:1;
+  opacity: 1;
+}
+span{
+  font-size: 30/@r;
+  color: #333;
+}
+::-webkit-input-placeholder{
+  font-size: 26/@r;
+  color: #9e9e9e;
+}
+input:focus{
+  color:#666;
+  caret-color:#666;
+}
+textarea{
+  border-radius: 0;
+}
+input{
+  border-radius: 0;
+  caret-color:#574e5f;
+  -webkit-appearance: none;
+  background:none;
+  outline:none;
+  border: none;
+  line-height: normal;
+  height: 80/@r;
+  font-size: 28/@r;
+}
+
+.wrap{
+    background-color: #f8f8f8;
+}
+.header{
+    text-align: center;
+    font-size: 36/@r;
+    color: #333;
+    padding: 24/@r 0;
+}
+.search{
+    display: flex;
+    align-items: center;
+    margin: 20/@r auto;
+}
+.search>img{
+    width: 28/@r;
+    margin-left: 36/@r;
+    margin-right: 18/@r;
+}
+
+.search,.search input{
+    width: 690/@r;
+    height: 58/@r;
+    line-height: 58/@r;
+    background-color: #fff;
+    border-radius: 29/@r;
+}
+.list{
+    padding: 0 30/@r;
+    margin-bottom: 180/@r;
+}
+.list li{
+    height: 138/@r;
+    background-color: #fff;
+    margin-bottom: 15/@r;
+    border-radius: 5px;
+}
+.nameSidebar{
+    float: left;
+    width: 86/@r;
+    height: 86/@r;
+    line-height: 86/@r;
+    border-radius: 43/@r;
+    background-color: #00adb4;
+    text-align: center;
+    color: #fff;
+    font-size: 28/@r;
+    margin: 24/@r;
+}
+.content{
+    float: left;
+}
+.content h3{
+    font-size: 30/@r;
+    color: #333;
+    font-weight: normal;
+    margin-top: 20/@r;
+}
+.content p{
+    font-size: 24/@r;
+    color: #9e9e9e;
+}
+.list-right{
+   float: right;
+   margin-right: 24/@r;
+   margin-top: 16/@r;
+
+}
+.list-right span{
+    font-size: 26/@r;
+    padding: 7/@r 35/@r;
+    border-radius: 30/@r;
+}
+.list-right p{
+    font-size: 20/@r;
+    color: #a7a7a7;
+    margin-top:10/@r; 
+    text-align: center;
+}
+
+.red{
+    border: 1px solid #fa6c6a;
+    color: #fa6c6a;
+}
+.green{
+    border: 1px solid #38d8b6;
+    color: #38d8b6;
+}
+.orange{
+    background-color: #feaf3f;
+    color: #fff;
+}
+.list-right .orange{
+    padding: 7/@r 13/@r;
+}
