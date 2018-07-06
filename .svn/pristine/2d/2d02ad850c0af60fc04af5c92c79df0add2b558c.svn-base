@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>授权申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="stylesheet" href="css/checkSelf.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div id="header">
+    </div>
+  
+    <div class="basicWrap">
+        <div class="basic">
+            <img src="images/basicBG.png" alt="">
+        </div>
+        <form id="deForm" class="basicForm clearfix" action="">
+            <label for="resumeName">
+                <i class="icon1"></i>
+                <span>姓名</span>
+                <input id="resumeName" type="text" name="resumeName" data-attribute="请填写正确的姓名" placeholder="请输入姓名" maxlength="20">
+            </label>
+            <label for="resumeIdCard">
+                <i class="icon2"></i>
+                <span class="inpId">身份证号码</span>
+                <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" onkeyup="value=value.replace(/[\W]/g,'')" maxlength="18">
+            </label><br>
+            <br>
+            <label class="lastLabel" for="resumeMobile">
+                <i class="icon3"></i>
+                <span class="inpTel">联系方式</span>
+                <input id="resumeMobile" type="text" name="resumeMobile" data-attribute="请填写正确的联系方式" placeholder="请输入联系方式" maxlength="11">
+            </label>
+            <br>
+        </form>
+    </div>
+    <div class="licensedContent">
+        <div class="licensedContentTitle">
+            <img src="images/licensedContent-icon.png" alt="">
+            <h2> 核验数据：</h2>
+        </div>
+        <ul class="clearfix">
+            <li>
+                <img src="images/a1.png" alt="">
+                <p>身份信息核验</p>
+            </li>
+            <li>
+                <img src="images/a6.png" alt="">
+                <p>职业资格核验</p>
+            </li>
+            <li>
+                <img src="images/a7.png" alt="">
+                <p>公共治安信息核验</p>
+            </li>
+        </ul>
+        <div class="lineWrap">
+            <div class="line"></div>
+        </div>
+        <div class="price clearfix">
+            <span>免费</span>
+        </div>
+    </div>
+    <div class="agreementWrap">
+            <span class="checkS">
+                <input type="checkbox" class="input_check" id="check1" checked="checked">
+                <label for="check1"></label>
+            </span>
+            <span class="read">我已阅读并同意</span>
+            <span class="agreement">《易职信免责协议》</span>
+        </div>
+    <div class="footer">
+        <button>查询</button>
+    </div>
+    <!--遮罩-->
+    <div class="zhezhao"></div>
+    <div id="loading" class="loader-inner line-scale">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="footerTab">
+		<p>
+			<img src="images/index_sel.png" alt=""> 
+			<span class="active"><a href="index.html">首页</a></span>
+		</p>
+		<p>
+			<img src="images/report_pre.png" alt=""> 
+			<span><a href="reportList.html">报告</a></span>
+		</p>
+		<p>
+			<img src="images/my-pre.png" alt=""> 
+			<span><a href="personal.html">我的</a></span>
+		</p>
+        </div>
+</body>
+
+</html>

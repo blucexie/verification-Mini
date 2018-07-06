@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>易职信</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.11.3.min.js"></script>    
+	<script type="text/javascript" src="libs/layui/layui.all.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/flexible.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="header-content">
+                <img src="images/header-content.png" alt="">
+            </div>
+            <div class="header-botton">
+                <img src="images/header-bottom.png" alt="">
+            </div>
+        </div>
+        <div class="main">
+            <!--<div class="self">-->
+                <!--<img src="images/self-icon.png" alt="">-->
+                <!--<span>查自己</span>-->
+            <!--</div>-->
+            <div class="others" onclick="checkOthers();">
+                <img src="images/others-icon.png" alt="">
+                <span>查别人</span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>更多精彩敬请期待</p>
+        </div>
+       
+    </div>
+    <div class="footerTab">
+        <p>
+			<img src="images/index_sel.png" alt=""> 
+			<a href="index.html" class="active">首页</a>
+		</p>
+		<p>
+			<img src="images/report_pre.png" alt=""> 
+			<a href="reportList.html">报告</a>
+		</p>
+		<p>
+			<img src="images/my-pre.png" alt=""> 
+			<a href="personal.html">我的</a>
+		</p>
+    </div>
+</body>
+</html>

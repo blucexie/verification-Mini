@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>授权申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="stylesheet" href="css/checkOthers.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="libs/layui/layui.js"></script>
+    <script type="text/javascript" src="js/checkOthers.js"></script>
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div id="header">
+    </div>
+    <div class="licensedContent">
+        <div class="licensedContentTitle">
+            <img src="images/licensedContent-icon.png" alt="">
+            <h2> 将授权的内容包括</h2>
+        </div>
+        <ul class="clearfix">
+            <li>
+                <img src="images/a1.png" alt="">
+                <p>身份信息核验</p>
+            </li>
+            <li>
+                <img src="images/a6.png" alt="">
+                <p>职业资格核验</p>
+            </li>
+            <li>
+                <img src="images/a7.png" alt="">
+                <p>公共治安信息核验</p>
+            </li>
+        </ul>
+        <div class="lineWrap">
+            <div class="line"></div>
+        </div>
+        <div class="price clearfix">
+            <span>价格：6元</span>
+        </div>
+    </div>
+    <div class="basicWrap">
+        <div class="basic">
+            <span class="msg-authorize active">短信授权</span>
+            <span class="scan-authorize">扫码授权</span>
+        </div>
+        <div id="basicFormDiv">
+            <form id="deForm" class="basicForm  clearfix">
+                <label for="resumeName">
+                    <i class="icon1"></i>
+                    <span>姓名</span>
+                    <input id="verifyName" type="text" name="verifyName" data-attribute="请填写正确的姓名" placeholder="请输入候选人姓名" maxlength="20">
+                </label>
+                <br>
+                <label for="resumeMobile">
+                    <i class="icon2"></i>
+                    <span class="inpTel">联系方式</span>
+                    <input id="verifyMobile" type="text" name="verifyMobile" data-attribute="请填写正确的联系方式" placeholder="请填写候选人手机号" maxlength="11">
+                </label>
+                <br>
+                <button type="button" class="nextStep">申请授权</button>
+            </form>
+        </div>
+        <div id="qrCodeDiv" class="qrCode active">
+            <img src="images/code.png" alt="">
+        </div>
+    </div>
+    <div class="footer">
+        <p>提示：</p>
+        <p>1、候选人同意授权后，才能对齐进行核验</p>
+        <p>候选人授权后，直接通过【报告】tab进行付款查看报告</p>
+    </div>
+    <!--遮罩-->
+    <div class="zhezhao"></div>
+    <div id="loading" class="loader-inner line-scale">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="footerTab">
+        <p>
+            <img src="images/index_sel.png" alt="">
+            <a class="active" href="index.html">首页</a>
+        </p>
+        <p>
+            <img src="images/report_pre.png" alt="">
+            <a href="reportList.html">报告</a>
+        </p>
+        <p>
+            <img src="images/my-pre.png" alt="">
+            <a href="personal.html">我的</a>
+        </p>
+    </div>
+</body>
+
+</html>

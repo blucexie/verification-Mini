@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>充值</title>
+    <link rel="stylesheet" href="css/recharge.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="recharge">
+        <div class="title">账户余额</div>
+        <div class="balance_t">550.00<span>元</span></div>
+        <button>马上充值</button>
+    </div>
+
+    <div class="balance">
+        <div class="balance_l left">
+            <p class="balance_one">充值余额</p>
+            <p class="balance_two">200.00<span>元</span></p>
+        </div>
+        <div class="balance_r right">
+            <p class="balance_one">红包余额</p>
+            <p class="balance_two">100.00<span>元</span></p>
+        </div>
+    </div>
+
+    <div class="record">
+        <ul>
+            <li>
+                <div class="record_l left">
+                    <p>充值</p>
+                    <p>2017-09-12 14:20:30</p>
+                </div>
+                <div class="record_r right">
+                    +500.00元
+                </div>
+            </li>
+            <li>
+                <div class="record_l left">
+                    <p>扣费</p>
+                    <p>2017-09-12 14:20:30</p>
+                </div>
+                <div class="record_r right">
+                    -500.00元
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="no_more">
+        暂无更多数据
+    </div>
+
+    <div class="footerTab">
+        <p>
+            <img src="images/index_sel.png" alt="">
+            <a class="active" href="index.html">首页</a>
+        </p>
+        <p>
+            <img src="images/report_pre.png" alt="">
+            <a href="reportList.html">报告</a>
+        </p>
+        <p>
+            <img src="images/my-pre.png" alt="">
+            <a href="personal.html">我的</a>
+        </p>
+    </div>
+</body>
+
+</html>

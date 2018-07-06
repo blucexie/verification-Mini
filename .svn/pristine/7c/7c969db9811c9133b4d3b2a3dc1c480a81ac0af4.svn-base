@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="css/personal.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/personal.js"></script>
+    <script type="text/javascript">
+        ! function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize = hWidth / 15 + 'px';
+        }();
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="unanth-header ">
+            <div class="headPortrait">
+                <img src="images/profile.png" alt="">
+                <img class="unanth" src="images/unanth.png" alt="">
+            </div>
+            <p class="userName">哎呀踏踏</p>
+            <span class="authenticate">去认证</span>
+        </div>
+        <div class="anth-header active clearfix">
+            <div class="headPortrait">
+                <img src="images/profile.png" alt="">
+                <img class="unanth" src="images/doneauth.png" alt="">
+            </div>
+            <div class="anth-msg">
+                <p class="anth-userName">13122324333</p>
+                <p class="anth-company">北京风影职信科技有限公司</p>
+            </div>
+            <span class="authenticate">重新认证</span>
+        </div>
+        <div class="wallet clearfix">
+            <img src="images/purse.png" alt="">
+            <span>我的钱包</span>
+            <div class="icon">
+                <span>50.00元</span>
+                <img src="images/check.png" alt="">
+            </div>
+        </div>
+        <div class="info clearfix">
+            <img src="images/message.png" alt="">
+            <span>消息</span>
+            <div class="icon">
+                <img src="images/check.png" alt="">
+            </div>
+        </div>
+        <div class="about clearfix">
+            <img src="images/setting.png" alt="">
+            <span>关于</span>
+            <div class="icon">
+                <img src="images/check.png" alt="">
+            </div>
+        </div>
+        <div class="download clearfix">
+            <img src="images/download.png" alt="">
+            <span>下载易职信</span>
+            <div class="icon">
+                <img src="images/check.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footerTab">
+        <p>
+            <img src="images/index_sel.png" alt="">
+            <a class="active" href="index.html">首页</a>
+        </p>
+        <p>
+            <img src="images/report_pre.png" alt="">
+            <a href="reportList.html">报告</a>
+        </p>
+        <p>
+            <img src="images/my-pre.png" alt="">
+            <a href="personal.html">我的</a>
+        </p>
+    </div>
+</body>
+</html>

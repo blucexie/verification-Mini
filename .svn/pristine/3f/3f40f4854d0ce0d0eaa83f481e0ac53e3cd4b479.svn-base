@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Microsoft YaHei "
+}
+img {
+    vertical-align: top;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.wrap{
+    z-index: 1;
+    padding-bottom:2rem;
+}
+/* header */
+.header{
+    background: url(../images/header-bg.jpg) no-repeat;
+    background-size: cover;
+    padding-top: 0.1px;
+    height: 12.266667rem;
+}
+.header-content{
+    text-align: center;
+    margin-top: 1.133333rem;
+    margin-bottom: .96rem;
+}
+.header-content>img{
+    width: 7.333333rem;
+}
+.header-botton{
+    text-align: center;
+    padding-bottom: 1.093333rem;
+}
+.header-botton>img{
+    width: 6.573333rem;
+}
+.main{
+    margin-top: -2.466667rem;
+}
+.self,.others{
+    width: 10rem;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+}
+.self{
+    background: url(../images/self-bg.png)no-repeat;
+    background-size: cover;
+}
+.others{
+    background: url(../images/others-bg.png) no-repeat;
+    background-size: cover;
+    margin-top: -0.32rem;
+}
+.self>img,.others>img{
+    width: 1.093333rem;
+    margin-left: 3.12rem;
+    margin-right: .426667rem;
+}
+.self>span,.others>span{
+   font-size: .453333rem;
+   color: #333;
+}
+.footer>p{
+    font-size: .346667rem;
+    color: #ccc;
+    text-align: center;
+    padding-top: .133333rem;
+}
+.footerTab{
+    width: 100%;
+      display: flex;
+     align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 -5px 10px 0 rgba(233,234,242,.5);
+    margin-top: .48rem;
+    z-index: 9999;
+    background-color: #fff;
+}
+.footerTab>p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    padding: .426667rem 0;
+}
+.footerTab>p>img{
+    width: .533333rem;
+}
+.footerTab>p>a{
+    font-size: .346667rem;
+    color: #999;
+    margin-left: .106667rem;
+}
+.footerTab>p>a.active{
+    color: #00adb4;
+}

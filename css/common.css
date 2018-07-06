@@ -1,7 +1,5 @@
 *{margin: 0;padding: 0;}
 
-
-
 ul,li{
     list-style: none;
   }
@@ -35,12 +33,12 @@ ul,li{
   .footerTab > p > img {
     width: 0.8rem;
   }
-  .footerTab > p > span {
+  .footerTab > p >a {
     font-size: 0.52rem;
     color: #999;
     margin-left: 0.16rem;
   }
-  .footerTab > p > span.active {
+  .footerTab > p >a.active {
     color: #00adb4;
   }
   

@@ -1,0 +1,39 @@
+$(function(){
+    getAccountBalance();
+    $('.authenticate').click(function () {
+        window.location.href = "authentication.html";
+    });
+    $('.info').click(function () {
+        window.location.href = "messageList.html";
+    });
+});
+
+function getAccountBalance() {
+    var userCode = getCookie('userCode');
+    $.ajax({
+        type : "POST",
+        url : "http://192.168.1.6:8887/api/quick/get/account/balance",
+        timeout:5000,
+        dataType:"json",
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data : JSON.stringify({"userCode":userCode}),
+        success : function(data) {
+            var jsonData = JSON.parse(data['plaintext']);
+            var balance = jsonData.item.balance;
+            $('.icon').find('span').text(balance+"元");
+        }
+    });
+    $.ajax({
+        type : "POST",
+        url : "http://192.168.1.6:8887/api/quick/get/enterprise/authen",
+        timeout:5000,
+        dataType:"json",
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data : JSON.stringify({"userCode":userCode}),
+        success : function(data) {
+            var jsonData = JSON.parse(data['plaintext']);
+            console.log(jsonData)
+            // $('.icon').find('span').text(balance+"元");
+        }
+    });
+}
