@@ -1,10 +1,11 @@
+var authen = '0';
 $(function(){
     if(userCode !== undefined){
         getPersonInfo();
     }
     $('.authenticate').click(function () {
         if (checkLogin()){
-            window.location.href = "authentication.html";
+            window.location.href = "authentication.html?authen="+authen;
         }
     });
     $('.info').click(function () {
@@ -22,6 +23,9 @@ $(function(){
     });
     $(".download").click(function(){
         window.location.href='download.html';
+    });
+    $("#img").click(function () {
+        checkLogin();
     });
 });
 
@@ -55,19 +59,37 @@ function getPersonInfo() {
         success : function(data) {
             var jsonData = JSON.parse(data['plaintext']);
             if(jsonData.item.result === 1001){
+                authen = jsonData.item.userAuten;
                 if(jsonData.item.userAuten === '1'){
+                    //认证通过
                     $('.unanth-header').removeClass('active');
                     $('.anth-header').addClass('active');
+                    $('.authenticate').show();
+                    $('.anth-userName').text(jsonData.item.mobile);
+                    $('.anth-company').text(jsonData.item.enterpriseName);
+                    $('#anth-image').attr('src',jsonData.item.image)
+                    $('.unanth').attr('src','images/doneauth.png')//
+                }else if(jsonData.item.userAuten === '2'){
+                    //认证中
+                    $('.userName').text(jsonData.item.mobile);
+                    $('#image').attr('src',jsonData.item.image);
+                    $('.unanth').attr('src','images/authing.png');
+                    $('.authenticate').hide();
+                }else if(jsonData.item.userAuten==='3'){
+                    //认证失败
+                    $('.unanth-header').removeClass('active');
+                    $('.anth-header').addClass('active');
+                    $('.authenticate').show();
                     $('.anth-userName').text(jsonData.item.mobile);
                     $('.anth-company').text(jsonData.item.enterpriseName);
                     $('#anth-image').attr('src',jsonData.item.image);
-                }else if(jsonData.item.userAuten === '2'){
+                    $('.unanth').attr('src','images/auth_failed.png');
+                }else if(jsonData.item.userAuten==='0'){
+                    //未认证
                     $('.userName').text(jsonData.item.mobile);
                     $('#image').attr('src',jsonData.item.image);
-                    $('.authenticate').hide();
-                }else{
-                    $('.userName').text(jsonData.item.mobile);
-                    $('#image').attr('src',jsonData.item.image);
+                    $('#anth-image').attr('src',jsonData.item.image);
+                    $('.unanth').attr('src','images/unanth.png');
                 }
             }
         }

@@ -40,9 +40,9 @@ input {
 }
 #header {
   width: 15rem;
-  height: 6.85rem;
-  background: url("../images/header-bg.png") no-repeat;
-  background-size: 15rem 6.92rem;
+  height: 6.98rem;
+  background: url("../images/verification.png") no-repeat;
+  background-size: 15rem 6.98rem;
 }
 #logo {
   float: left;
@@ -144,10 +144,10 @@ input {
   width: 13.24rem;
   font-size: 0.6rem;
   color: #573e5f;
-  height: 2rem;
-  line-height: 2rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
   display: inline-block;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid #eee;
   background: #fff;
   margin-left: 0.32rem;
 }
@@ -238,9 +238,9 @@ input {
 }
 .nextStep {
   text-align: center;
-  padding: 0.88rem 0;
+  padding: 1.08rem 0;
   background-color: #fff;
-  margin-bottom: 2.6rem;
+  margin-bottom: 3.6rem;
 }
 .nextStep button {
   width: 9rem;

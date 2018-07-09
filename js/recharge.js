@@ -25,16 +25,36 @@ $(function () {
             });
         }
     });
+    getAccountInfo();
+    $(window).scroll(function () {
+        if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+            if(canLoadMore){
+                pageStart+=pageSize;
+                getAccountInfo();
+            }
+        }
+    });
+});
+var pageStart = 0;
+var pageSize = 10;
+var canLoadMore = true;
+
+function getAccountInfo() {
+
     $.ajax({
         url: '/api/quick/get/account/info',
         type: 'POST',
         timeout: '5000',
         dataType: 'json',
-        data: "{\"userCode\":\"" + userCode + "\"}",
+        data: "{\"userCode\":\"" + userCode + "\",\"pageStart\":\"" + pageStart + "\",\"pageSize\":\"" + pageSize + "\"}",
         success: function (data) {
             var jsonData = JSON.parse(data['plaintext']).item;
             if (jsonData.result === 1001) {
                 var jsonArray = jsonData.accountArray;
+                //返回数据长度小于请求长度表示没有数据了
+                if(jsonArray.length<pageSize){
+                    canLoadMore = false;
+                }
                 $(jsonArray).each(function (index, value) {
                     var time = value.payTime.substring(0, 4) + "-" + value.payTime.substring(4, 6) + "-" + value.payTime.substring(6, 8)
                         + "&nbsp;&nbsp;" + value.payTime.substring(8, 10) + ":" + value.payTime.substring(10, 12) + ":" + value.payTime.substring(12, 14);
@@ -64,9 +84,7 @@ $(function () {
         }
 
     });
-
-
-});
+}
 
 
 

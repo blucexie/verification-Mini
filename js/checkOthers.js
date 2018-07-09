@@ -34,7 +34,7 @@ $(function () {
 		var obj = {
 			"verifyName":verifyName,
 			"verifyMobile":verifyMobile,
-			"userCode": getUserCode()
+			"userCode": userCode
 		};
         $.ajax({
         	url:'/api/quick/verifySMS',
@@ -49,8 +49,10 @@ $(function () {
         			layerOpen(jsonData.item.resultInfo);
         			$("#verifyName").val("");
         			$("#verifyMobile").val("");
+        		}else if(result === 3001){
+        			layerOpen(jsonData.item.resultInfo);
         		}else{
-        			layerOpen("申请授权短信发送失败，请稍后重试");
+        			layerOpen("申请授权短信发送失败，请稍后重试");        			
         		}
         		$(".nextStep").attr('disabled',false);
         	}
@@ -60,11 +62,15 @@ $(function () {
 	$(".msg-authorize").click(function(){
 		$("#basicFormDiv").show();
 		$("#qrCodeDiv").hide();
+		$(this).addClass('active');
+		$('.scan-authorize').removeClass('active');
 	});
 	
 	$(".scan-authorize").click(function(){
 		$("#basicFormDiv").hide();
 		$("#qrCodeDiv").show();
+		$(this).addClass('active');
+		$('.msg-authorize').removeClass('active');
 	});
 });
 

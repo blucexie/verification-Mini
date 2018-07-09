@@ -30,10 +30,10 @@ a {
 }
 /* header */
 .header{
-    background: url(../images/header-bg.jpg) no-repeat;
+    background: url(../images/header-bg.png) no-repeat;
     background-size: cover;
     padding-top: 0.1px;
-    height: 12.266667rem;
+    height: 12.36rem;
 }
 .header-content{
     text-align: center;

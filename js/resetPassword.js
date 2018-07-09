@@ -1,8 +1,4 @@
-$(function () {
-    $('.footer').click(function () {
-        window.location.href='https://api.funinhr.com/contactUs.html';
-    });
-
+$(function(){
     $('#mesBtn').click(function () {
         var mobile = $('#resumeMobile').val();
         if(!isValidPhone(mobile)){
@@ -15,7 +11,7 @@ $(function () {
         curCount = countTime;
         $.ajax({
             type : "POST",
-            url : "/api/quick/enterprise/send/registeSMS",
+            url : "/api/quick/enterprise/send/rebuildPwdSMS",
             timeout:5000,
             dataType:"json",
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -23,9 +19,10 @@ $(function () {
             success : function(data) {
                 var jsonData = JSON.parse(data['plaintext']);
                 var result = jsonData.item.result;
+                var resultInfo = jsonData.item.resultInfo;
                 if(result === 2001){
                     layer.open({
-                        content: jsonData.item.resultInfo,
+                        content: resultInfo,
                         btn: '确定'
                     });
                     document.getElementById("mesBtn").style.color="#cccccc";
@@ -34,7 +31,7 @@ $(function () {
                     InterValObj = window.setInterval(SetRemainTime, 1000);
                 }else{
                     layer.open({
-                        content: jsonData.item.resultInfo,
+                        content: resultInfo,
                         btn: '确定'
                     });
                 }
@@ -42,11 +39,11 @@ $(function () {
         });
     });
 
-
-    $('.register>button').click(function () {
+    $('.resetBtn>button').click(function () {
         var mobile = $('#resumeMobile').val();
         var validateCode = $('#validateCode').val();
-        var password = $('#resumePassword').val();
+        var password = $('#Password').val();
+        var againPassword = $('#againPassword').val();
         if(mobile === ''){
             layer.open({
                 content: '请输入手机号',
@@ -89,56 +86,46 @@ $(function () {
             });
             return;
         }
-        var basicPass = true;
-        if( $("#check1").is(':checked')===false){
+        if(againPassword === ''){
             layer.open({
-                content: '请阅读并同意协议'
-                ,btn: '确定'
-            }); 
-            basicPass = false;
+                content: '请输入确认密码',
+                btn: '确定'
+            });
+            return;
         }
-        if (!basicPass) return false;
-        dataJson ={
-            mobile:mobile,
-            loginPwd: password,
-            validateCode:validateCode,
-            openid:openid
-        };
+        if(password !== againPassword){
+            layer.open({
+                content: '密码和确认密码不一致',
+                btn: '确定'
+            });
+            return;
+        }
         $.ajax({
-            url:'/api/quick/enterprise/register',
-            type: "POST",
+            type : "POST",
+            url : "/api/quick/enterprise/rebuild/pwd",
             timeout:5000,
             dataType:"json",
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            data:JSON.stringify(dataJson),
-            success: function (data) {
+            data : JSON.stringify({"mobile":mobile,"validateCode":validateCode,"loginPwd":password}),
+            success : function(data) {
                 var jsonData = JSON.parse(data['plaintext']);
                 var result = jsonData.item.result;
                 var resultInfo = jsonData.item.resultInfo;
                 if(result === 1001){
-                    // layer.open({
-                    //     content: resultInfo
-                    // });
-                    addCookie('userCode',jsonData.item.userCode);
-                    window.location.replace("index.html");
+                    layer.open({
+                        content: resultInfo,
+                        btn: '确定',
+                        yes:function () {
+                            window.location.replace("index.html");
+                        }
+                    });
                 }else{
                     layer.open({
                         content: resultInfo,
                         btn: '确定'
                     });
-                    return;
                 }
-            },
-            error: function (XMLHttpRequest, textStatus) {
-                layer.open({
-                    content: '网络异常，请稍后重试',
-                    btn: '确定'
-                });
             }
         });
     });
-
-    $('.agreement').on('click',function(){
-        window.location.href = "https://api.funinhr.com/protocol.html";
-    })
 });

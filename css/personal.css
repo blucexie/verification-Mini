@@ -1,7 +1,6 @@
 body {
   font-family: "Microsoft YaHei";
   position: relative;
-  background: #f8f8f8;
 }
 span {
   font-size: 0.6rem;
@@ -90,6 +89,8 @@ span {
 .info,
 .about,
 .download {
+  display: flex;
+  align-items: center;
   height: 1.72rem;
 }
 .wallet > img,
@@ -100,16 +101,15 @@ span {
   width: 0.84rem;
   margin-left: 0.64rem;
   margin-right: 0.6rem;
-  margin-top: 0.48rem;
 }
 .wallet > span,
 .info > span,
 .about > span,
 .download > span {
   float: left;
-  font-size: 0.64rem;
+  font-size: 0.56rem;
   color: #333;
-  margin-top: 0.4rem;
+  flex: 1;
 }
 .wallet,
 .about {
@@ -117,21 +117,21 @@ span {
 }
 .info,
 .download {
-  border-bottom: 0.28rem solid #f4f5f9;
+  border-bottom: 0.28rem solid #f8f8f8;
 }
 .icon {
-  float: right;
-  margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
 }
 .icon > img {
   width: 0.26rem;
   margin-right: 0.6rem;
-  padding-left: 1rem;
+  /*  padding-left: 50/@r; */
 }
 .icon span {
   font-size: 0.6rem;
   color: #feaf3f;
 }
 .wallet .icon > img {
-  padding-left: 0;
+  padding-left: 0.6rem;
 }

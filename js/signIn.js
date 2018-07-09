@@ -16,16 +16,23 @@ $(function(){
         $('.passwordLogin>span').removeClass('active');
     });
 
+    $('.footerRight').click(function () {
+        window.location.href='resetPassword.html';
+    });
+
+    $('.agreement').on('click',function(){
+        window.location.href = "https://api.funinhr.com/protocol.html";
+    });
     $('#mesBtn').click(function () {
         var mobile = $('#phoneTab-Mobile').val();
-        var regex = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
-        if(!regex.test(mobile)){
+        if(!isValidPhone(mobile)){
             layer.open({
                 content: '请输入正确的手机号码',
                 btn: '确定'
             });
             return;
         }
+        curCount = countTime;
         $.ajax({
             type : "POST",
             url : "/api/quick/enterprise/send/loginSMS",
@@ -42,6 +49,10 @@ $(function(){
                         content: resultInfo,
                         btn: '确定'
                     });
+                    document.getElementById("mesBtn").style.color="#cccccc";
+                    document.getElementById("mesBtn").style.border="1px solid #bfbfbf";
+                    $("#mesBtn").attr("disabled", "true");
+                    InterValObj = window.setInterval(SetRemainTime, 1000);
                 }else{
                     layer.open({
                         content: resultInfo,
@@ -53,18 +64,85 @@ $(function(){
     });
 
     $('.login>button').click(function () {
+        var basicPass = true;
+        if( $("#check1").is(':checked')===false){
+            layer.open({
+                content: '请阅读并同意协议'
+                ,btn: '确定'
+            }); 
+            basicPass = false;
+        }
+        if (!basicPass) return false;
+
         var type = $('.header').find('div').children("p.active").text();
         if(type === '密码登录'){
+            var mobile = $("#passwordTab-Mobile").val();
+            if(mobile===null || mobile===''){
+                layer.open({
+                    content: "请输入登录账户信息",
+                    btn: '确定'
+                });
+                return;
+            }
+
+            if(!isValidPhone(mobile)){
+                    layer.open({
+                        content: "请您输入正确的手机号",
+                        btn: '确定'
+                    });
+                    return;
+            }
+
+            var resumePassword = $("#resumePassword").val();
+            if(resumePassword===null || resumePassword===''){
+                layer.open({
+                    content: "请输入登录账户密码",
+                    btn: '确定'
+                });
+                return;
+            }
             dataJson ={
-                mobile:$('#passwordTab-Mobile').val(),
-                loginPwd: $('#resumePassword').val(),
+                mobile:mobile,
+                loginPwd: resumePassword,
                 openid:openid
             };
             login(dataJson,'/quick/password/login');
         }else{
+            var mobile = $("#phoneTab-Mobile").val();
+            if(mobile===null || mobile===''){
+                layer.open({
+                    content: "请输入登录账户信息",
+                    btn: '确定'
+                });
+                return;
+            }
+
+            if(!isValidPhone(mobile)){
+                    layer.open({
+                        content: "请您输入正确的手机号",
+                        btn: '确定'
+                    });
+                    return;
+            }
+
+            var validateCode = $('#validateCode').val();
+            if(validateCode === null || validateCode === ''){
+                layer.open({
+                    content: "请输入验证码",
+                    btn: '确定'
+                });
+                return;
+            }
+            if(validateCode.length !== 6){
+                layer.open({
+                    content: '请输入正确的验证码',
+                    btn: '确定'
+                });
+                return;
+            }
             dataJson ={
-                mobile:$('#phoneTab-Mobile').val(),
-                validateCode: $('#validateCode').val(),
+                mobile:mobile,
+                validateCode: validateCode,
                 openid:openid
             };
             login(dataJson,'/quick/sms/login');
@@ -87,16 +165,17 @@ function login(dataJson,url) {
         success: function (data) {
             var jsonData = JSON.parse(data['plaintext']);
             var result = jsonData.item.result;
-            var resultInfo = jsonData.item.resultInfo;
             if(result === 1001){
                 // layer.open({
                 //     content: resultInfo,
+                //     time: 2,//2秒后自动关闭
                 //     success:function () {
                 //     }
                 // });
-            	loginSuccess("userCode", jsonData.item.userCode);
+                loginSuccess("userCode", jsonData.item.userCode);
                 window.location.replace("index.html");
             }else{
+                var resultInfo = jsonData.item.resultInfo;
                 layer.open({
                     content: resultInfo,
                     btn: '确定'

@@ -137,3 +137,21 @@ input {
 .list-right .orange {
   padding: 0.14rem 0.26rem;
 }
+.noData {
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -3.96rem;
+  top: 6rem;
+}
+.noData > img {
+  width: 7.92rem;
+}
+.noData > p {
+  font-size: 0.6rem;
+  color: #666;
+  text-align: center;
+}
+.noData.active {
+  display: block;
+}

@@ -99,3 +99,21 @@ span {
   color: #666;
   line-height: 0.96rem;
 }
+.noData {
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -3.96rem;
+  top: 6rem;
+}
+.noData > img {
+  width: 7.92rem;
+}
+.noData > p {
+  font-size: 0.6rem;
+  color: #666;
+  text-align: center;
+}
+.noData.active {
+  display: block;
+}

@@ -9,7 +9,7 @@ body {
   float: right;
 }
 .recharge {
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid #eee;
   padding-bottom: 0.8rem;
 }
 .title {
@@ -29,7 +29,7 @@ body {
   font-size: 0.76rem;
   font-weight: 600;
 }
-.balance_first{
+.balance_first {
   display: inline-block;
   font-size: 1.6rem !important;
   font-weight: 700 !important;
@@ -51,14 +51,17 @@ button {
 .balance {
   text-align: center;
   overflow: hidden;
-  border-bottom: 0.02rem solid #e7e7e7;
+  border-bottom: 0.02rem solid #eee;
+  position: relative;
 }
 .balance_l {
   width: 7.48rem;
-  border-right: 0.02rem solid #e7e7e7;
+  border-right: 0.02rem solid #eee;
 }
 .balance_r {
   width: 7.48rem;
+  position: absolute;
+  right: 0;
 }
 .balance_one {
   font-size: 0.56rem;
@@ -76,21 +79,20 @@ button {
   font-size: 0.48rem;
   font-weight: 500;
 }
-.balance_recharge{
+.balance_recharge {
   font-size: 0.76rem !important;
   color: #333333 !important;
   font-weight: 600 !important;
 }
-.balance_red{
+.balance_red {
   font-size: 0.76rem !important;
   color: #333333 !important;
   font-weight: 600 !important;
 }
 .record ul li {
-  width: 14.6rem;
   overflow: hidden;
-  padding-left: 0.4rem;
-  border-bottom: 0.02rem solid #e7e7e7;
+  padding-left: 0.5rem;
+  border-bottom: 0.02rem solid #eee;
 }
 .record_l p:nth-child(1) {
   font-size: 0.56rem;
@@ -106,7 +108,7 @@ button {
   font-size: 0.56rem;
   color: #666666;
   margin-top: 0.72rem;
-  margin-right: 0.84rem;
+  margin-right: 0.5rem;
 }
 .no_more {
   text-align: center;

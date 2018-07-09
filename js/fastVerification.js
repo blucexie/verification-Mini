@@ -1,6 +1,6 @@
 $(function () {
-	/*获取authenCode*/
-    function getQueryString() {
+	/*短信授权获取授权码*/
+    function getAuthenCodeQueryString() {
         var url = window.location.href;
         var index = url.lastIndexOf("\/");
         code = url.substring(index + 1, url.length);
@@ -9,33 +9,9 @@ $(function () {
         }
         return null;
     }
-    var authenCode = getQueryString();
-    if(authenCode!=null){
-    	var obj = {
-    		"authenCode":authenCode
-    	}
-    	$.ajax({
-        	url:'/quick/getVerifyInfo',
-        	type: "POST",
-        	timeout:5000,
-        	dataType:"json",
-        	async:false,
-        	data:JSON.stringify(obj),
-        	success: function (data) {
-        		var jsonData = JSON.parse(data['plaintext'])
-        		var result = jsonData.result;
-        		if(result == 1001){
-        			$("#verifyName").val(jsonData.item.verifyName);
-        			$("#verifyMobile").val(jsonData.item.verifyMobile);
-        		}else{
-        			layerOpen("获取核验人信息有误，请稍后重试");
-        		}
-        	}
-        });
-    }
     
-    /*获取userCode*/
-    function getQueryString(name) {
+    /*根据参数名获取参数值*/
+    function getParamByNameQueryString(name) {
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if(r!=null){        	
@@ -43,9 +19,67 @@ $(function () {
         }
         return null;
     }
-    var userCode = getQueryString("userCode");
+    var userCode = getParamByNameQueryString("userCode");
+    var authenCode = null;
+    /*扫码授权*/
+    if(userCode != null && userCode != ''){
+    	var obj = {
+    			"userCode":userCode
+    		}
+    		$.ajax({
+    			url:'/quick/get/enterprise/info',
+    			type: "POST",
+    			timeout:5000,
+    			dataType:"json",
+    			async:false,
+    			data:JSON.stringify(obj),
+    			success: function (data) {
+    				var jsonData = JSON.parse(data['plaintext'])
+    				var result = jsonData.result;
+    				if(result == 1001 && jsonData.item != null){
+    					$(".companyName").text(jsonData.item.enterpriseName);
+    				}else{
+    					layerOpen("获取企业公司信息失败");
+    					return;
+    				}
+    			}
+    		});
+    /*短信授权*/
+    }else{
+    	/*阿里短信授权方式*/
+    	authenCode = getParamByNameQueryString("authenCode");
+    	if(authenCode == null){
+    		/*腾讯短信授权方式*/
+    		authenCode = getAuthenCodeQueryString();
+    	}
+    	if(authenCode != null && authenCode != undefined){
+    		var obj = {
+    			"authenCode":authenCode
+    		}
+    		$.ajax({
+    			url:'/quick/getVerifyInfo',
+    			type: "POST",
+    			timeout:5000,
+    			dataType:"json",
+    			async:false,
+    			data:JSON.stringify(obj),
+    			success: function (data) {
+    				var jsonData = JSON.parse(data['plaintext'])
+    				var result = jsonData.result;
+    				if(result == 1001 && jsonData.item != null){
+    					$("#verifyName").val(jsonData.item.verifyName);
+    					$("#verifyMobile").val(jsonData.item.verifyMobile);
+    					$(".companyName").text(jsonData.item.enterpriseName);
+    				}else{
+    					layerOpen("授权码已失效");
+    					return;
+    				}
+    			}
+    		});
+    	}
+    }
     
-	$(".nextStep").click(function(){
+	$(".nextStep button").click(function(){
 		$(".nextStep").attr('disabled',true);
 		$("#deForm").submit(function(e){
 			e.preventDefault();
@@ -68,23 +102,41 @@ $(function () {
 		/* 获取用户姓名 */
 		var verifyName = $("#verifyName").val();
 		if(verifyName==null || verifyName==''){
-			layerOpen("请输入您的姓名");
-			$("#verifyName").focus();
+			layer.open({
+				content: "请输入您的姓名"
+				,btn: '确定',
+				yes: function(index){
+					layer.close(index);
+					$("#verifyName").focus();
+				}
+			});
 			$(".nextStep").attr('disabled',false);
 			return;
 		}
 		/* 获取身份证号码 */
 		var verifyIdCard = $("#verifyIdCard").val();
 		if(verifyIdCard==null || verifyIdCard==''){
-			$("#verifyIdCard").focus();
-			layerOpen("请输入您的身份证号码");
+			layer.open({
+				content: "请输入您的身份证号码"
+				,btn: '确定',
+				yes: function(index){
+					layer.close(index);
+					$("#verifyIdCard").focus();
+				}
+			});
 			$(".nextStep").attr('disabled',false);
 			return;
 		}else{
 			if(!checkICCard(verifyIdCard)){
-				$("#verifyIdCard").focus();
+				layer.open({
+					content: "您的身份证号码输入有误，请重新输入"
+					,btn: '确定',
+					yes: function(index){
+						layer.close(index);
+						$("#verifyIdCard").focus();
+					}
+				});
 				$("#verifyIdCard").val("");
-				layerOpen("您的身份证号码输入有误，请重新输入");
 				$(".nextStep").attr('disabled',false);
 				return;
 			}
@@ -92,15 +144,27 @@ $(function () {
 		/* 获取手机号码 */
 		var verifyMobile = $("#verifyMobile").val();
 		if(verifyMobile==null || verifyMobile==''){
-			$("#verifyMobile").focus();
-			layerOpen("请输入您的手机号");
+			layer.open({
+				content: "请输入您的手机号"
+				,btn: '确定',
+				yes: function(index){
+					layer.close(index);
+					$("#verifyMobile").focus();
+				}
+			});
 			$(".nextStep").attr('disabled',false);
 			return;
 		}else{
 			if(!isValidPhone(verifyMobile)){
-				$("#verifyMobile").focus();
+				layer.open({
+					content: "您的手机号输入有误，请重新输入"
+					,btn: '确定',
+					yes: function(index){
+						layer.close(index);
+						$("#verifyMobile").focus();
+					}
+				});
 				$("#verifyMobile").val("");
-				layerOpen("您的手机号输入有误，请重新输入");
 				$(".nextStep").attr('disabled',false);
 				return;
 			}
@@ -142,10 +206,15 @@ $(function () {
         			layerOpen(jsonData.item.resultInfo);
         			$("#verifyName").val("");
         			$("#verifyMobile").val("");
+        			$(".nextStep").attr('disabled',false);
+        			window.location.href = "/resume/succeedQuick.html";
+        		}else if(result == 3001){
+        			layerOpen("您已在该企业授权通过，请确认");
+        			$(".nextStep").attr('disabled',false);
         		}else{
         			layerOpen("信息处理有误，请稍后重试");
+        			$(".nextStep").attr('disabled',false);
         		}
-        		$(".nextStep").attr('disabled',false);
         	}
         });
     });

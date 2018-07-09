@@ -3,7 +3,6 @@
 body{
   font-family:"Microsoft YaHei";
   position: relative;
-  background: #f8f8f8;
 }
 
 span{
@@ -89,6 +88,8 @@ span{
     display: block;
 }
 .wallet,.info,.about,.download{
+    display: flex;
+    align-items: center;
     height: 86/@r;
 }
 .wallet>img,.info>img,.about>img,.download>img{
@@ -96,34 +97,32 @@ span{
     width: 42/@r;
     margin-left: 32/@r;
     margin-right: 30/@r;
-    margin-top: 24/@r;
 }
 .wallet>span,.info>span,.about>span,.download>span{
     float: left;
-
-   font-size: 32/@r;
+   font-size: 28/@r;
    color: #333;
-   margin-top: 20/@r;
+   flex: 1;
 }
 .wallet,.about{
     border-bottom: 1px solid #eee;
 }
 .info,.download{
-    border-bottom: 14/@r solid #f4f5f9;
+    border-bottom: 14/@r solid #f8f8f8;
 }
 .icon{
-    float: right;
-    margin-top: 10/@r;
+    display: flex;
+    align-items: center;
 }
 .icon>img{
     width: 13/@r;
     margin-right: 30/@r;
-    padding-left: 50/@r;
+   /*  padding-left: 50/@r; */
 }
 .icon span{
     font-size: 30/@r;
     color: #feaf3f;
 }
 .wallet .icon>img{
-    padding-left: 0;
+    padding-left: 30/@r;
 }

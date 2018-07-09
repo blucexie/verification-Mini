@@ -10,7 +10,7 @@ body{
     float: right;
 }
 .recharge{
-    border-bottom: 1px solid #e7e7e7;
+    border-bottom: 1px solid #eee;
     padding-bottom: 40/@r;
 }
 .title{
@@ -30,6 +30,11 @@ body{
     font-size: 38/@r;
     font-weight: 600;
 }
+.balance_first{
+    display: inline-block;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+}
 button{
     width: 252/@r;
     height: 82/@r;
@@ -47,14 +52,17 @@ button{
 .balance{
     text-align: center;
     overflow: hidden;
-    border-bottom: 1/@r solid #e7e7e7;
+    border-bottom: 1/@r solid #eee;
+    position: relative;
 }
 .balance_l{
     width: 374/@r;
-    border-right: 1/@r solid #e7e7e7;
+    border-right: 1/@r solid #eee;
 }
 .balance_r{
-    width:50%;
+    width: 374/@r;
+    position: absolute;
+    right: 0;
 }
 .balance_one{
     font-size: 28/@r;
@@ -72,11 +80,21 @@ button{
     font-size: 24/@r;
     font-weight: 500;
 }
+.balance_recharge{
+    font-size: 0.76rem !important;
+    color: #333333 !important;
+    font-weight: 600 !important;
+  }
+  .balance_red{
+    font-size: 0.76rem !important;
+    color: #333333 !important;
+    font-weight: 600 !important;
+  }
 .record ul li{
     width: 15rem;
     overflow: hidden;
     padding-left: 20/@r;
-    border-bottom:  1/@r solid #e7e7e7;
+    border-bottom:  1/@r solid #eee;
 }
 .record_l p:nth-child(1){
     font-size: 38/@r;
