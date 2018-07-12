@@ -12,6 +12,8 @@
     <script type="text/javascript" src="libs/layui/lay/modules/layer.js"></script>
     <script type="text/javascript" src="js/cookie.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="js/wechatCommon.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/authentication.js"></script>
     <script type="text/javascript">
@@ -44,7 +46,7 @@
             </label>
             <label>
                 <span class="password">支付密码</span>
-                <input id="password" type="password" name="password" placeholder="请设置支付密码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();" pattern="[0-9]*" maxlength="6">
+                <input id="password" type="password" name="password" placeholder="请设置支付密码(只支持纯数字)" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();" pattern="[0-9]*" maxlength="6">
             </label>
             <br>
         </form>

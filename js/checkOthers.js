@@ -1,8 +1,8 @@
 $(function () {
     $('#code').html('');
     $('#code').qrcode({
-        width: 135,
-        height: 135,
+        width: 115,
+        height: 115,
         text:api_serve+'/wechat/fastVerification.html?userCode='+userCode
     });
 	$(".nextStep").click(function(){

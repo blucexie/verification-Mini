@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/personal.css">
     <link rel="stylesheet" href="css/common.css">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="js/wechatCommon.js"></script>
+    <script type="text/javascript" src="libs/layui/lay/modules/layer.js"></script>
     <script type="text/javascript" src="js/cookie.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/personal.js"></script>
@@ -25,7 +28,9 @@
     <div class="wrap">
         <div class="unanth-header active">
             <div class="headPortrait">
-                <img id="img" src="images/profile.png" alt="">
+                <div>
+                    <img id="img" src="images/profile.png" alt="">
+                </div>
                 <img class="unanth" src="images/unanth.png" alt="">
             </div>
             <p class="userName">------------</p>
@@ -33,7 +38,9 @@
         </div>
         <div class="anth-header clearfix">
             <div class="headPortrait">
-                <img id="anth-image" src="images/profile.png" alt="">
+                <div>
+                    <img id="anth-image" src="images/profile.png" alt="">
+                </div>
                 <img class="unanth" src="images/doneauth.png" alt="">
             </div>
             <div class="anth-msg">
@@ -74,11 +81,11 @@
     </div>
     <div class="footerTab">
             <p id="tabOne">
-                <img src="images/index_sel.png" alt=""> 
+                <img src="images/index-nor.png" alt="">
                 <a href="javascript:;"  >首页</a>
             </p>
             <p id="tabTwo">
-                <img src="images/report_pre.png" alt=""> 
+                <img src="images/report-nor.png" alt="">
                 <a href="javascript:;">报告</a>
             </p>
             <p id="tabThree">

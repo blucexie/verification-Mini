@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/checkOthers.css">
     <link rel="stylesheet" href="css/common.css">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="js/wechatCommon.js"></script>
     <script type="text/javascript" src="js/cookie.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="libs/layui/lay/modules/layer.js"></script>
@@ -78,8 +80,9 @@
             </form>
         </div>
         <div id="qrCodeDiv" class="qrCode active">
-            <div id="code" name="code"></div>
-            <!--<img src="images/code.png" alt="">-->
+            <div class="codrWrap">
+                <div id="code" name="code"></div>
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -98,11 +101,11 @@
     </div>
     <!-- <div class="footerTab">
         <p id="tabOne">
-			<img src="images/index_sel.png" alt=""> 
+			<img src="images/index-sel.png" alt="">
 			<a  href="javascript:;" class="active">首页</a>
 		</p>
 		<p id="tabTwo">
-			<img src="images/report_pre.png" alt=""> 
+			<img src="images/report-pre.png" alt="">
 			<a  href="javascript:;">报告</a>
 		</p>
 		<p id="tabThree">

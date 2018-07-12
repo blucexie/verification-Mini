@@ -2,8 +2,8 @@ function checkOthers(){
     var userCode = getUserCode();
     if (userCode == undefined){
         layer.open({
-            content: '请首先登陆或者注册企业账户'
-            ,btn: ['去登陆', '取消']
+            content: '请首先登录或者注册企业账户'
+            ,btn: ['去登录', '取消']
             ,yes: function(index){
                 window.location.href='signIn.html';
             }

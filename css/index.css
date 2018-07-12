@@ -33,7 +33,7 @@ a {
     background: url(../images/header-bg.png) no-repeat;
     background-size: cover;
     padding-top: 0.1px;
-    height: 12.36rem;
+    height: 10.653333rem;
 }
 .header-content{
     text-align: center;
@@ -76,6 +76,7 @@ a {
 .self>span,.others>span{
    font-size: .453333rem;
    color: #333;
+   margin-top: -0.053333rem;
 }
 .footer>p{
     font-size: .346667rem;
@@ -109,6 +110,7 @@ a {
     font-size: .346667rem;
     color: #999;
     margin-left: .106667rem;
+    margin-top: -0.026667rem;
 }
 .footerTab>p>a.active{
     color: #00adb4;

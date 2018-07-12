@@ -1,18 +1,6 @@
-var api_serve = "http://192.168.1.6:8887";
-// var api_serve = "https://apix.funinhr.com";
+// var api_serve = "http://192.168.1.6:8887";
+var api_serve = "https://apix.funinhr.com";
 
-// 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
-var useragent = navigator.userAgent;
-
-/*if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
-	// 这里警告框会阻塞当前页面继续加载
-	alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
-	// 以下代码是用javascript强行关闭当前页面
-	var opened = window.open('about:blank', '_self');
-	opened.opener = null;
-	opened.close();
-}
-*/
 /* 校验手机号码 */
 function isValidPhone(mobile) {
 	var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|19[0-9]|14[57])[0-9]{8}$/;
@@ -47,28 +35,49 @@ $(window).resize(function () {
 //获取UserCode
  function getUserCode() {
     var code = getCookie('userCode');
-    if (code == '') {
+    if (code === '') {
     	return undefined;
     }
     return code;
 }
 
-//获取UserCode
+//获取OpenId
 function getOpenId() {
-    var code = getCookie('openid');
-    if (code == '') {
+    var openid = getCookie('openid');
+    if (openid === '') {
         // return undefined;
         return RndNum(16);
     }
-    return code;
+    return openid;
+}
+
+//subscribe
+function getSubscribe() {
+    var subscribe = getCookie('subscribe');
+    if (subscribe === '') {
+        return undefined;
+    }
+    return subscribe;
 }
 
 var userCode = getUserCode();
 
 var openid = getOpenId();
 
+var subscribe = getSubscribe();
+
 function checkLogin() {
-    if (userCode == undefined) {
+    if(subscribe === '0' || subscribe === undefined){
+        layer.open({
+            content: '请首先关注易职信公众号'
+            ,btn: ['确定', '取消']
+            ,yes: function(index){
+                window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5Nzk3NjE3NA==&scene=124&#wechat_redirect';
+            }
+        });
+        return false;
+    }
+    if (userCode === undefined) {
         window.location.href = 'signIn.html';
         return false;
     }

@@ -35,9 +35,17 @@ span{
     position: relative;
     margin-top: 44/@r;
 }
-.headPortrait>img{
+.headPortrait>div{
     width: 120/@r;
+    height: 120/@r;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
 }
+.headPortrait>div>img{
+    width: 100%;
+}
+
 .unanth-header .headPortrait .unanth{
     position: absolute;
     left: 50%;
@@ -103,6 +111,9 @@ span{
    font-size: 28/@r;
    color: #333;
    flex: 1;
+}
+.wallet>span{
+    margin-top: 4/@r;
 }
 .wallet,.about{
     border-bottom: 1px solid #eee;

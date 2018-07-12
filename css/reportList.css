@@ -21,7 +21,7 @@ span {
   color: #333;
 }
 ::-webkit-input-placeholder {
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   color: #9e9e9e;
 }
 input:focus {
@@ -154,4 +154,10 @@ input {
 }
 .noData.active {
   display: block;
+}
+.recharge-balance {
+  width: 11rem;
+  border: 1px solid #eeeeee;
+  font-size: 0.64rem;
+  text-indent: 2em;
 }

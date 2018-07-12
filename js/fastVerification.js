@@ -80,7 +80,7 @@ $(function () {
     }
     
 	$(".nextStep button").click(function(){
-		$(".nextStep").attr('disabled',true);
+		$("#nextStepBtn").attr('disabled',true);
 		$("#deForm").submit(function(e){
 			e.preventDefault();
 		});
@@ -110,7 +110,7 @@ $(function () {
 					$("#verifyName").focus();
 				}
 			});
-			$(".nextStep").attr('disabled',false);
+			$("#nextStepBtn").attr('disabled',false);
 			return;
 		}
 		/* 获取身份证号码 */
@@ -124,7 +124,7 @@ $(function () {
 					$("#verifyIdCard").focus();
 				}
 			});
-			$(".nextStep").attr('disabled',false);
+			$("#nextStepBtn").attr('disabled',false);
 			return;
 		}else{
 			if(!checkICCard(verifyIdCard)){
@@ -137,7 +137,7 @@ $(function () {
 					}
 				});
 				$("#verifyIdCard").val("");
-				$(".nextStep").attr('disabled',false);
+				$("#nextStepBtn").attr('disabled',false);
 				return;
 			}
 		}
@@ -152,7 +152,7 @@ $(function () {
 					$("#verifyMobile").focus();
 				}
 			});
-			$(".nextStep").attr('disabled',false);
+			$("#nextStepBtn").attr('disabled',false);
 			return;
 		}else{
 			if(!isValidPhone(verifyMobile)){
@@ -165,7 +165,7 @@ $(function () {
 					}
 				});
 				$("#verifyMobile").val("");
-				$(".nextStep").attr('disabled',false);
+				$("#nextStepBtn").attr('disabled',false);
 				return;
 			}
 		}
@@ -177,7 +177,7 @@ $(function () {
         }else{
             inputObject = $(this);
             layerOpen("请签名");
-            $(".nextStep").attr('disabled',false);
+            $("#nextStepBtn").attr('disabled',false);
             return false;
         }
 		var obj = {
@@ -203,17 +203,18 @@ $(function () {
         		var jsonData = JSON.parse(data['plaintext'])
         		var result = jsonData.item.result;
         		if(result == 1001){
-        			layerOpen(jsonData.item.resultInfo);
         			$("#verifyName").val("");
         			$("#verifyMobile").val("");
-        			$(".nextStep").attr('disabled',false);
         			window.location.href = "/resume/succeedQuick.html";
-        		}else if(result == 3001){
-        			layerOpen("您已在该企业授权通过，请确认");
-        			$(".nextStep").attr('disabled',false);
+        		}else if(result == 2012){
+        			layerOpen(jsonData.item.resultInfo);
+        			$("#nextStepBtn").attr('disabled',false);
+        		}else if(result == 2014){
+        			layerOpen(jsonData.item.resultInfo);
+        			$("#nextStepBtn").attr('disabled',false);
         		}else{
         			layerOpen("信息处理有误，请稍后重试");
-        			$(".nextStep").attr('disabled',false);
+        			$("#nextStepBtn").attr('disabled',false);
         		}
         	}
         });

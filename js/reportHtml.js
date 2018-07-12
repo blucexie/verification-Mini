@@ -11,7 +11,7 @@ $(function () {
             var result = jsonData.result;
             if(result === 1001){
                 var html = jsonData.item;
-                var htmlHead = document.querySelector('.html');
+                // var htmlHead = document.querySelector('.html');
                 $('.html').find('head').remove();
                 document.write(html);
                 // console.log(html);

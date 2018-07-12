@@ -20,13 +20,14 @@ $(function () {
 });
 
 function viewReport(orderCode,verifyCode){
-    var index = layer.open({
-        type: 2,
-        maxmin: false,
-        content: 'reportHtml.html?orderCode='+orderCode+'&verifyCode='+verifyCode
-    });
-    layer.full(index);
+    // var index = layer.open({
+    //     type: 2,
+    //     maxmin: false,
+    //     content: 'reportHtml.html?orderCode='+orderCode+'&verifyCode='+verifyCode
+    // });
+    // layer.full(index);
 
+    window.location.href = 'reportHtml.html?orderCode='+orderCode+'&verifyCode='+verifyCode+'#top';
 
     // $.ajax({
     //     url : "/api/quick/get/report/html",
@@ -65,40 +66,81 @@ function viewReport(orderCode,verifyCode){
     // });
 }
 function payOrder(orderCode){
-    layer.prompt({
-        formType:1,
-        title: '请输入支付密码',
-        // value: '初始值',
-        // area: ['800px', '350px'], //自定义文本域宽高
-        yes: function(index,layero){
-            var password = layero.find(".layui-layer-input").val();
-            if( password=== ''){
-                layer.msg('请输入密码');
-                return;
-            }
-            $.ajax({
-                type : "POST",
-                url : "/api/quick/payOrder",
-                timeout:5000,
-                dataType:"json",
-                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                data : JSON.stringify({"userCode":userCode,"orderCode":orderCode,"payPwd":password}),
-                success : function(data) {
-                    var jsonData = JSON.parse(data['plaintext']);
-                    console.log(jsonData);
-                    if(jsonData.item.result === 4005){
-                        layer.msg(jsonData.item.resultInfo);
-                        setTimeout(window.location.reload(), 3000);
-                        layer.close(index);
-                    }else{
-                        layer.msg(jsonData.item.resultInfo);
-                        layero.find(".layui-layer-input").val('')
+    layer.open({
+        content: '<input type="text" class="recharge-balance" placeholder="请输入六位纯数字支付密码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,\'\');}).call(this)" maxlength="6"/>',
+        title:'请输入支付密码',
+        btn: ['确定', '取消'],
+        yes: function(index){
+            var password = $('.recharge-balance').val();
+                    if( password=== ''){
+                        layer.open({
+                            content: '请输入密码'
+                        });
+                        return;
                     }
-                }
-            });
+                    $.ajax({
+                        type : "POST",
+                        url : "/api/quick/payOrder",
+                        timeout:5000,
+                        dataType:"json",
+                        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                        data : JSON.stringify({"userCode":userCode,"orderCode":orderCode,"payPwd":password}),
+                        success : function(data) {
+                            var jsonData = JSON.parse(data['plaintext']);
+                            console.log(jsonData);
+                            if(jsonData.item.result === 4005){
+                                layer.open({
+                                    content: jsonData.item.resultInfo
+                                });
+                                setTimeout(window.location.reload(), 3000);
+                                layer.close(index);
+                            }else{
+                                layer.open({
+                                    content: jsonData.item.resultInfo
+                                });
+                                $('.recharge-balance').val('');
+                            }
+                        }
+                    });
         }
     });
-    $('.layui-layer-input').attr('maxlength','6');
+    $('.layui-m-layercont').css({
+        "padding": "0px 30px 20px 30px"
+    });
+    // layer.prompt({
+    //     formType:1,
+    //     title: '请输入支付密码',
+    //     // value: '初始值',
+    //     // area: ['800px', '350px'], //自定义文本域宽高
+    //     yes: function(index,layero){
+    //         var password = layero.find(".layui-layer-input").val();
+    //         if( password=== ''){
+    //             layer.msg('请输入密码');
+    //             return;
+    //         }
+    //         $.ajax({
+    //             type : "POST",
+    //             url : "/api/quick/payOrder",
+    //             timeout:5000,
+    //             dataType:"json",
+    //             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    //             data : JSON.stringify({"userCode":userCode,"orderCode":orderCode,"payPwd":password}),
+    //             success : function(data) {
+    //                 var jsonData = JSON.parse(data['plaintext']);
+    //                 console.log(jsonData);
+    //                 if(jsonData.item.result === 4005){
+    //                     layer.msg(jsonData.item.resultInfo);
+    //                     setTimeout(window.location.reload(), 3000);
+    //                     layer.close(index);
+    //                 }else{
+    //                     layer.msg(jsonData.item.resultInfo);
+    //                     layero.find(".layui-layer-input").val('')
+    //                 }
+    //             }
+    //         });
+    //     }
+    // });
+    // $('.layui-layer-input').attr('maxlength','6');
 }
 
 /**
