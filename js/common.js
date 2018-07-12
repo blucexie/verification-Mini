@@ -1,5 +1,5 @@
 // var api_serve = "http://192.168.1.6:8887";
-var api_serve = "https://apix.funinhr.com";
+var api_serve = "https://api.funinhr.com";
 
 /* 校验手机号码 */
 function isValidPhone(mobile) {
@@ -65,20 +65,40 @@ var userCode = getUserCode();
 var openid = getOpenId();
 
 var subscribe = getSubscribe();
+var subscribeFlagName = "subscribeFlag";
 
 function checkLogin() {
     if(subscribe === '0' || subscribe === undefined){
+        var subscribeFlag = getCookie(subscribeFlagName);
+        if (subscribeFlag == 1){
+            layer.open({
+                content: '页面将重新刷新，请刷新后重新操作。'
+                ,btn: ['确定']
+                ,yes: function(index){
+                    removeCookie(subscribeFlagName);
+                    window.location.href = "https://api.funinhr.com/wechat/index";
+                }
+            });
+            return false;
+        }
         layer.open({
             content: '请首先关注易职信公众号'
-            ,btn: ['确定', '取消']
+            ,btn: ['去关注']
             ,yes: function(index){
-                window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5Nzk3NjE3NA==&scene=124&#wechat_redirect';
+                window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5Nzk3NjE3NA==&scene=110&#wechat_redirect';
+                addCookie(subscribeFlagName,1);
             }
         });
         return false;
     }
     if (userCode === undefined) {
-        window.location.href = 'signIn.html';
+        layer.open({
+            content: '您必须登录易职信账号后才能使用'
+            ,btn: ['去登录']
+            ,yes: function(index){
+                window.location.href = 'signIn.html';
+            }
+        });
         return false;
     }
     return true;

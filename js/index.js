@@ -1,15 +1,5 @@
 function checkOthers(){
-    var userCode = getUserCode();
-    if (userCode == undefined){
-        layer.open({
-            content: '请首先登录或者注册企业账户'
-            ,btn: ['去登录', '取消']
-            ,yes: function(index){
-                window.location.href='signIn.html';
-            }
-        });
-        return;
-    }
+    if (!checkLogin())return;
     $.ajax({
         type : "POST",
         url : "/api/quick/get/userInfo",

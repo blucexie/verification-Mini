@@ -115,3 +115,6 @@ a {
 .footerTab>p>a.active{
     color: #00adb4;
 }
+#tabOne>img{
+    margin-top: -0.133333rem;
+  } 

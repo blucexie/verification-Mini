@@ -1,0 +1,59 @@
+@r:50rem;
+*{margin: 0;padding: 0;box-sizing: border-box;}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+body{
+  font-family:"Microsoft YaHei";
+  position: relative;
+  background: #f8f8f8;
+}
+
+span{
+  font-size: 30/@r;
+  color: #333;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrap{
+    position: relative;
+    height: 1334/@r;
+    background: url(../images/attention-bg.jpg)no-repeat;
+    background-size: 750/@r 1334/@r;
+    padding-top: 0.1px;
+}
+.code{
+    margin-top: 216/@r;
+    text-align: center;
+}
+.code>img{
+    width: 262/@r;
+}
+.des{
+    margin-top: 90/@r;
+    padding: 0 137/@r;
+}
+.des>p{
+    font-size: 28/@r;
+    color: #333;
+    line-height: 44/@r;
+}
+.footer{
+    position: absolute;
+    bottom: 20/@r;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.footer>p{
+    font-size: 26/@r;
+    color: #fff;
+    text-align: center;
+}

@@ -72,6 +72,7 @@ input {
 .list {
   padding: 0 0.6rem;
   margin-bottom: 3.6rem;
+  margin-top: 0.6rem;
 }
 .list li {
   height: 2.76rem;
@@ -107,7 +108,7 @@ input {
 .list-right {
   float: right;
   margin-right: 0.48rem;
-  margin-top: 0.32rem;
+  margin-top: 0.6rem;
 }
 .list-right span {
   display: inline-block;
@@ -136,13 +137,14 @@ input {
 }
 .list-right .orange {
   padding: 0.14rem 0.26rem;
+  border: none;
 }
 .noData {
   display: none;
   position: absolute;
   left: 50%;
   margin-left: -3.96rem;
-  top: 6rem;
+  top: 3rem;
 }
 .noData > img {
   width: 7.92rem;

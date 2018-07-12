@@ -16,7 +16,7 @@ $(function () {
                 pageStart+=pageSize;
             }
         }
-    })
+    });
 });
 
 function viewReport(orderCode,verifyCode){
@@ -67,8 +67,9 @@ function viewReport(orderCode,verifyCode){
 }
 function payOrder(orderCode){
     layer.open({
-        content: '<input type="text" class="recharge-balance" placeholder="请输入六位纯数字支付密码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,\'\');}).call(this)" maxlength="6"/>',
+        content: '<input type="password" class="recharge-balance" placeholder="请输入六位纯数字支付密码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,\'\');}).call(this)" maxlength="6"/>',
         title:'请输入支付密码',
+        formType: 1,
         btn: ['确定', '取消'],
         yes: function(index){
             var password = $('.recharge-balance').val();
@@ -107,40 +108,42 @@ function payOrder(orderCode){
     $('.layui-m-layercont').css({
         "padding": "0px 30px 20px 30px"
     });
-    // layer.prompt({
-    //     formType:1,
-    //     title: '请输入支付密码',
-    //     // value: '初始值',
-    //     // area: ['800px', '350px'], //自定义文本域宽高
-    //     yes: function(index,layero){
-    //         var password = layero.find(".layui-layer-input").val();
-    //         if( password=== ''){
-    //             layer.msg('请输入密码');
-    //             return;
-    //         }
-    //         $.ajax({
-    //             type : "POST",
-    //             url : "/api/quick/payOrder",
-    //             timeout:5000,
-    //             dataType:"json",
-    //             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    //             data : JSON.stringify({"userCode":userCode,"orderCode":orderCode,"payPwd":password}),
-    //             success : function(data) {
-    //                 var jsonData = JSON.parse(data['plaintext']);
-    //                 console.log(jsonData);
-    //                 if(jsonData.item.result === 4005){
-    //                     layer.msg(jsonData.item.resultInfo);
-    //                     setTimeout(window.location.reload(), 3000);
-    //                     layer.close(index);
-    //                 }else{
-    //                     layer.msg(jsonData.item.resultInfo);
-    //                     layero.find(".layui-layer-input").val('')
-    //                 }
-    //             }
-    //         });
-    //     }
-    // });
-    // $('.layui-layer-input').attr('maxlength','6');
+   /* layer.prompt({
+        formType:1,
+        title: '请输入六位纯数字支付密码',
+        // value: '初始值',
+        // area: ['800px', '350px'], //自定义文本域宽高
+        yes: function(index,layero){
+            var password = $('.recharge-balance').val();
+            if( password=== '' || password.length != 6){
+                layer.msg('请输入六位纯数字支付密码');
+                return;
+            }
+            $.ajax({
+                type : "POST",
+                url : "/api/quick/payOrder",
+                timeout:5000,
+                dataType:"json",
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data : JSON.stringify({"userCode":userCode,"orderCode":orderCode,"payPwd":password}),
+                success : function(data) {
+                    var jsonData = JSON.parse(data['plaintext']);
+                    console.log(jsonData);
+                    if(jsonData.item.result === 4005){
+                        layer.msg(jsonData.item.resultInfo);
+                        setTimeout(window.location.reload(), 3000);
+                        layer.close(index);
+                    }else{
+                        layer.open({
+                            content: jsonData.item.resultInfo
+                        });
+                        $('.recharge-balance').val('');
+                    }
+                }
+            });
+        }
+    });
+    $('.recharge-balance').attr('maxlength','6'); */
 }
 
 /**
@@ -180,7 +183,7 @@ function getReportList() {
                 	}
                 	reportStr += '<p>订单价格：'+value.orderBalance+'元</p></div>'; 
                 	reportStr += '<div class="list-right">';
-                	if(value.orderStat === '1'){
+                	if(value.orderStat === '1' || value.orderStat === '4'){
                 		reportStr += '<span onclick="javascript:viewReport('+"'"+$.trim(value.orderCode)+"','"+$.trim(value.verifyCode)+"'"+')">查看</span>';
                 	}else{
                 		reportStr += '<span class="orange" onclick="payOrder('+"'"+$.trim(value.orderCode)+"'"+')">去付款</span>';

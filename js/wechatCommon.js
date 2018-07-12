@@ -12,10 +12,10 @@ if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
 
 
 //微信快速核验分享方法-------开始
-var link = 'https://api.funinhr.com/api/wechat/index.html';//分享跳转链接
+var link = window.location.href;//当前页面链接
 var title = '要招聘，就用易职信';//分享标题
 var desc = '企业都爱用的背调平台';//分享文案
-var imgUrl = 'http://cdn.funinhr.com/online/image/job/1-120-120.png';//分享图片地址
+var imgUrl = 'http://cdn.funinhr.com/online/image/enterprise/logo200x200.png';//分享图片地址
 
 var dataUrl = {
     url: link
@@ -31,7 +31,7 @@ $.ajax({
         var data = JSON.parse(data.plaintext);
 
         wx.config({
-            debug: true,
+            debug: false,
             appId: data.appid,
             timestamp: data.timestamp,
             nonceStr: data.nonceStr,
@@ -51,12 +51,15 @@ $.ajax({
     }
 });
 
+//var shareLink = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83f0bedcd4d1c492&redirect_uri=https://api.funinhr.com/api/wechat/index&response_type=code&scope=snsapi_userinfo'
+var shareLink = 'https://api.funinhr.com/api/wechat/index'
+
 wx.ready(function () {
     // var protocol = window.location.protocol;
     // var host = window.location.host;
     wx.onMenuShareTimeline({
         title: title,
-        link: link,
+        link: shareLink,
         imgUrl:imgUrl,
         success:function(){
             return false;
@@ -65,7 +68,7 @@ wx.ready(function () {
     wx.onMenuShareAppMessage({
         title: title,
         desc: desc,
-        link: link,
+        link: shareLink,
         imgUrl:imgUrl,
         type: 'link',
         dataUrl: '',
@@ -76,7 +79,7 @@ wx.ready(function () {
     wx.onMenuShareQQ({
         title: title,
         desc: desc,
-        link: link,
+        link: shareLink,
         imgUrl: imgUrl,
         success:function(){
             return false;
@@ -86,7 +89,7 @@ wx.ready(function () {
     wx.onMenuShareWeibo({
         title: title,
         desc: desc,
-        link: link,
+        link: shareLink,
         imgUrl: imgUrl,
         success:function(){
             return false;
@@ -97,7 +100,7 @@ wx.ready(function () {
     wx.onMenuShareQZone({
         title: title,
         desc: desc,
-        link: link,
+        link: shareLink,
         imgUrl: imgUrl,
         success:function(){
             return false;

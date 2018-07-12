@@ -93,7 +93,7 @@ $(function () {
 
         });
     })
-})
+});
 
 
 var chartedImage;
